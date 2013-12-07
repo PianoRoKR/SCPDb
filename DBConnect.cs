@@ -26,7 +26,7 @@ namespace SCPDb
         private void Initialize()
         {
             mServer = "scpdb.dyndns.info";
-            mDatabase = "scpdb";
+            mDatabase = "SCP_DB";
             mUid = "root";
             mPassword = "scpdbpass123";
             string lConnectionString;
@@ -59,6 +59,10 @@ namespace SCPDb
 
                     case 1045:
                         MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                    
+                    default:
+                        MessageBox.Show(ex.Message);
                         break;
                 }
                 return false;
@@ -137,23 +141,24 @@ namespace SCPDb
 
         public int SelectUID(int aUID, string aPassword)
         {
-            string lQuery = "SELECT uid FROM Users WHERE userID = @uid AND password = @pass";
-            string lUID = null;
+            string lQuery = "SELECT userID FROM Users WHERE userID = @uid AND passwd = @pass";
+            int lUID = -1;
             if (this.OpenConnection() == true)
             {
                 MySqlCommand lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
-                MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
                 lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
                 lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
                 lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
                 SHA1 lHasher = SHA1.Create();
                 byte[] lHash = lHasher.ComputeHash(GetBytes(aPassword));
-                lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "");
+                lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "").ToLower();
                 lUserIDLoginCmd.Prepare();
+                MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
                 while (lDataReader.Read())
                 {
-                    lUID = Convert.ToString(lDataReader["uid"]);
+                    lUID = Convert.ToInt32(lDataReader["userID"]);
                 }
+                this.CloseConnection();
             }
             return lUID;
         }
@@ -161,7 +166,7 @@ namespace SCPDb
         public int SelectUID(string aSession)
         {
             string lQuery = "SELECT uid FROM Users WHERE sessionid = @session";
-            string lUID = null;
+            int lUID = -1;
             if (this.OpenConnection() == true)
             {
                 MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
@@ -171,8 +176,9 @@ namespace SCPDb
                 MySqlDataReader lDataReader = lSessionLookup.ExecuteReader();
                 while (lDataReader.Read())
                 {
-                    lUID = Convert.ToString(lDataReader["uid"]);
+                    lUID = Convert.ToInt32(lDataReader["uid"]);
                 }
+                this.CloseConnection();
             }
             return lUID;
         }
@@ -180,13 +186,32 @@ namespace SCPDb
         public bool ExecuteLogin(int aUID, string aPassword)
         {
             int lValidUID = this.SelectUID(aUID, aPassword);
-            string lUpdateStatement = "UPDATE Users SET sessionid=@session WHERE userid=@uid";
-
-            if (lValidUID == -1)
+            string lQuery = "UPDATE Users SET sessionid=@session WHERE userid=@uid";
+            string lSessionID = DateTime.Now.ToFileTime().ToString();
+            if (lValidUID != aUID)
                 return false;
             else
             {
-
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
+                    lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
+                    lSessionCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                    lSessionCmd.Parameters["@uid"].Value = lValidUID;
+                    lSessionCmd.Parameters["@session"].Value = lSessionID;
+                    if (lSessionCmd.ExecuteNonQuery() == 1)
+                    {
+                        mSessionID = lSessionID;
+                        this.CloseConnection();
+                        return true;
+                    }
+                    else
+                    {
+                        this.CloseConnection();
+                        return false;
+                    }
+                }
+                return false;
             }
         }
 
@@ -242,6 +267,7 @@ namespace SCPDb
         //Count statement
         public int Count()
         {
+            return 0;
         }
 
         //Backup

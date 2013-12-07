@@ -13,6 +13,7 @@ namespace SCPDb
 {
     public partial class frmLogin : Form
     {
+        DBConnect mDBConnect;
         public frmLogin()
         {
             InitializeComponent();
@@ -20,7 +21,17 @@ namespace SCPDb
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string lPassword = tbPassword.Text;
+            int lUID = int.Parse(tbUserName.Text);
+            if (mDBConnect.ExecuteLogin(lUID, lPassword) == true)
+                MessageBox.Show("Logged in!");
+            else
+                MessageBox.Show("Log in failed!");
+        }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            mDBConnect = new DBConnect();
         }
     }
 }

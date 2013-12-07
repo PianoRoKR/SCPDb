@@ -62,6 +62,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(255, 31);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -110,6 +111,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmLogin";
             this.Text = "SCPDb Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
