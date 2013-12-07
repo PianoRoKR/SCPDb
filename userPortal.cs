@@ -24,6 +24,12 @@ namespace SCPDb
             agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
         }
 
+        private void logout_Click(object sender, EventArgs e)
+        {
+            // need to add logout
+            Application.Exit();
+        }
+
         
     }
 }

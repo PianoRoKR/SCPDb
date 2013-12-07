@@ -296,6 +296,11 @@ namespace SCPDb
             return agentID;
         }
 
+        public int getAgentClass()
+        {
+            return agentID;
+        }
+
         public string getSessionID()
         {
             return mSessionID;

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userPortal));
             this.agentWelcome_label = new System.Windows.Forms.Label();
+            this.logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // agentWelcome_label
@@ -37,11 +38,19 @@
             resources.ApplyResources(this.agentWelcome_label, "agentWelcome_label");
             this.agentWelcome_label.Name = "agentWelcome_label";
             // 
+            // logout
+            // 
+            resources.ApplyResources(this.logout, "logout");
+            this.logout.Name = "logout";
+            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
             // userPortal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.Controls.Add(this.logout);
             this.Controls.Add(this.agentWelcome_label);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -56,5 +65,6 @@
         #endregion
 
         private System.Windows.Forms.Label agentWelcome_label;
+        private System.Windows.Forms.Button logout;
     }
 }
