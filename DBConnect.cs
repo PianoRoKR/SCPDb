@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+
 namespace SCPDb
 {
     class DBConnect
     {
         private MySqlConnection mConnection;
+        private SSHConnector mSSH;
         private string mServer;
         private string mDatabase;
         private string mUid;
@@ -25,7 +27,7 @@ namespace SCPDb
         //Initialize values
         private void Initialize()
         {
-            mServer = "scpdb.dyndns.info";
+            mServer = "localhost";
             mDatabase = "SCP_DB";
             mUid = "root";
             mPassword = "scpdbpass123";
@@ -33,7 +35,14 @@ namespace SCPDb
             lConnectionString = "SERVER=" + mServer + ";" + "DATABASE=" +
             mDatabase + ";" + "UID=" + mUid + ";" + "PASSWORD=" + mPassword + ";";
 
-            mConnection = new MySqlConnection(lConnectionString);            
+            mConnection = new MySqlConnection(lConnectionString);
+            mSSH = new SSHConnector();
+            mSSH.Connect();
+        }
+
+        public bool CloseSSH()
+        {
+            return mSSH.Disconnect();
         }
 
         //open connection to database

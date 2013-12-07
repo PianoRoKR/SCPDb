@@ -22,7 +22,13 @@ namespace SCPDb
         private void button1_Click(object sender, EventArgs e)
         {
             string lPassword = tbPassword.Text;
-            int lUID = int.Parse(tbUserName.Text);
+            int lUID = -1;
+            if (!int.TryParse(tbUserName.Text, out lUID) || lUID == -1)
+            {
+                MessageBox.Show("Invalid user id!");
+                tbPassword.Text = "";
+                return;
+            }
             if (mDBConnect.ExecuteLogin(lUID, lPassword) == true)
                 MessageBox.Show("Logged in!");
             else
@@ -33,5 +39,12 @@ namespace SCPDb
         {
             mDBConnect = new DBConnect();
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mDBConnect.CloseSSH();
+        }
+
+
     }
 }
