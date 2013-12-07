@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-
+using System.Security.Cryptography;
 namespace SCPDb
 {
     class DBConnect
@@ -15,7 +15,7 @@ namespace SCPDb
         private string mDatabase;
         private string mUid;
         private string mPassword;
-
+        private string mSessionID;
         //Constructor
         public DBConnect()
         {
@@ -33,7 +33,7 @@ namespace SCPDb
             lConnectionString = "SERVER=" + mServer + ";" + "DATABASE=" +
             mDatabase + ";" + "UID=" + mUid + ";" + "PASSWORD=" + mPassword + ";";
 
-            mConnection = new MySqlConnection(lConnectionString);
+            mConnection = new MySqlConnection(lConnectionString);            
         }
 
         //open connection to database
@@ -133,6 +133,68 @@ namespace SCPDb
                 lCmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
+        }
+
+        public int SelectUID(int aUID, string aPassword)
+        {
+            string lQuery = "SELECT uid FROM Users WHERE userID = @uid AND password = @pass";
+            string lUID = null;
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
+                MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
+                lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
+                lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
+                SHA1 lHasher = SHA1.Create();
+                byte[] lHash = lHasher.ComputeHash(GetBytes(aPassword));
+                lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "");
+                lUserIDLoginCmd.Prepare();
+                while (lDataReader.Read())
+                {
+                    lUID = Convert.ToString(lDataReader["uid"]);
+                }
+            }
+            return lUID;
+        }
+
+        public int SelectUID(string aSession)
+        {
+            string lQuery = "SELECT uid FROM Users WHERE sessionid = @session";
+            string lUID = null;
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
+                lSessionLookup.Parameters.Add("@session", MySqlDbType.String);
+                lSessionLookup.Parameters["@session"].Value = aSession;
+                lSessionLookup.Prepare();
+                MySqlDataReader lDataReader = lSessionLookup.ExecuteReader();
+                while (lDataReader.Read())
+                {
+                    lUID = Convert.ToString(lDataReader["uid"]);
+                }
+            }
+            return lUID;
+        }
+
+        public bool ExecuteLogin(int aUID, string aPassword)
+        {
+            int lValidUID = this.SelectUID(aUID, aPassword);
+            string lUpdateStatement = "UPDATE Users SET sessionid=@session WHERE userid=@uid";
+
+            if (lValidUID == -1)
+                return false;
+            else
+            {
+
+            }
+        }
+
+        static byte[] GetBytes(string str)
+        {
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
         }
 
         //Select statement
