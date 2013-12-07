@@ -30,7 +30,12 @@ namespace SCPDb
                 return;
             }
             if (mDBConnect.ExecuteLogin(lUID, lPassword) == true)
+            {
                 MessageBox.Show("Logged in!");
+                userPortal portal = new userPortal(mDBConnect);
+                portal.Show();
+                this.Hide();
+            }
             else
                 MessageBox.Show("Log in failed!");
         }

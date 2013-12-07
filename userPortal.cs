@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace SCPDb
+{
+    public partial class userPortal : Form
+    {
+        DBConnect mDBConnect;
+        public userPortal(DBConnect dbC)
+        {
+            InitializeComponent();
+            mDBConnect = dbC;
+        }
+
+        private void userPortal_Load(object sender, EventArgs e)
+        {
+            agentWelcome_label.Text = "Welcome Agent " + mDBConnect.getAgentName();
+        }
+
+        
+    }
+}

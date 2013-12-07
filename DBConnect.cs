@@ -18,6 +18,9 @@ namespace SCPDb
         private string mUid;
         private string mPassword;
         private string mSessionID;
+        private string agentName;
+        private int agentID;
+        private int agentClass;
         //Constructor
         public DBConnect()
         {
@@ -212,6 +215,7 @@ namespace SCPDb
                     {
                         mSessionID = lSessionID;
                         this.CloseConnection();
+                        setActiveUser(lValidUID);
                         return true;
                     }
                     else
@@ -232,45 +236,36 @@ namespace SCPDb
         }
 
         //Select statement
-        public List<string>[] SelectUID()
+        private void setActiveUser(int userID)
         {
-            string lQuery = "SELECT uid FROM tableinfo";
-
-            //Create a list to store the result
-            List<string>[] lList = new List<string>[3];
-            lList[0] = new List<string>();
-            lList[1] = new List<string>();
-            lList[2] = new List<string>();
+            string lQuery = "SELECT name, class FROM Users WHERE userID = @UID";
 
             //Open connection
             if (this.OpenConnection() == true)
             {
                 //Create Command
                 MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+                lCmd.Parameters.Add("@UID", MySqlDbType.Int16);
+                lCmd.Parameters["@UID"].Value = userID;
+
                 //Create a data reader and Execute the command
                 MySqlDataReader lDataReader = lCmd.ExecuteReader();
 
                 //Read the data and store them in the list
                 while (lDataReader.Read())
                 {
-                    lList[0].Add(lDataReader["id"] + "");
-                    lList[1].Add(lDataReader["name"] + "");
-                    lList[2].Add(lDataReader["age"] + "");
+                    agentName = Convert.ToString(lDataReader["name"]);
+                    agentClass = Convert.ToInt32(lDataReader["class"]);
                 }
+                agentID = userID;
 
                 //close Data Reader
                 lDataReader.Close();
 
                 //close Connection
                 this.CloseConnection();
-
-                //return list to be displayed
-                return lList;
             }
-            else
-            {
-                return lList;
-            }
+            else throw new Exception("userLookupFailed");
         }
 
         //Count statement
@@ -287,6 +282,23 @@ namespace SCPDb
         //Restore
         public void Restore()
         {
+        }
+
+        // GET METHODS
+
+        public string getAgentName()
+        {
+            return agentName;
+        }
+
+        public string getAgentID()
+        {
+            return agentID;
+        }
+
+        public string getSessionID()
+        {
+            return mSessionID;
         }
     }
 }
