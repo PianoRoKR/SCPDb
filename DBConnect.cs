@@ -21,6 +21,8 @@ namespace SCPDb
         private string agentName;
         private int agentID;
         private int agentClass;
+        private bool mLoggedIn = false;
+
         //Constructor
         public DBConnect()
         {
@@ -216,6 +218,7 @@ namespace SCPDb
                         mSessionID = lSessionID;
                         this.CloseConnection();
                         setActiveUser(lValidUID);
+                        mLoggedIn = true;
                         return true;
                     }
                     else
@@ -266,6 +269,12 @@ namespace SCPDb
                 this.CloseConnection();
             }
             else throw new Exception("userLookupFailed");
+        }
+
+        public List<String>[] getSCPDb()
+        {
+            /*string lQuery = "SELECT scpnum FROM Items WHERE userID = @UID";   */
+            return null;
         }
 
         //Count statement
