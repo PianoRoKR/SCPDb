@@ -11,16 +11,17 @@ namespace SCPDb
 {
     public partial class userPortal : Form
     {
-        DBConnect mDBConnect;
+        public DBConnect mDB;
+
         public userPortal(DBConnect dbC)
         {
             InitializeComponent();
-            mDBConnect = dbC;
+            mDB = dbC;
         }
 
         private void userPortal_Load(object sender, EventArgs e)
         {
-            agentWelcome_label.Text = "Welcome Agent " + mDBConnect.getAgentName();
+            agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
         }
 
         

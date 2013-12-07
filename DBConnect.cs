@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 
 namespace SCPDb
 {
-    class DBConnect
+    public class DBConnect
     {
         private MySqlConnection mConnection;
         private SSHConnector mSSH;
@@ -291,7 +291,7 @@ namespace SCPDb
             return agentName;
         }
 
-        public string getAgentID()
+        public int getAgentID()
         {
             return agentID;
         }
