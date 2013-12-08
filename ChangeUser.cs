@@ -24,7 +24,7 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            bool updated = mDB.updateUserClass(mEditedUser, (ClassType)comboBox2.SelectedIndex);
+            bool updated = mDB.updateUserClass(mEditedUser, (ClassType)comboBox2.SelectedItem);
 
             if (updated) { this.Close(); }
             else MessageBox.Show("Update failed!");
