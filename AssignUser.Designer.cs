@@ -111,10 +111,10 @@
             this.Controls.Add(this.comboUser);
             this.Controls.Add(this.labelItem);
             this.Controls.Add(this.comboItem);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AssignUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AssignUser";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AssignUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -164,10 +164,10 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelClass);
             this.Controls.Add(this.comboBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ChangeUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ChangeUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
