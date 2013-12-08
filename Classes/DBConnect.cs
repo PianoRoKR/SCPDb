@@ -283,9 +283,9 @@ namespace SCPDb.Classes
         public List<int> getAssignableSCPsO5(int aUID)
         {
             List<int> lSCPList = new List<int>();
-            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE a.userId <> @uid OR a.userId = NULL ORDER BY i.scpNum";
+            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i WHERE i.scpNum NOT IN (SELECT a.scpNum FROM Assigned a WHERE a.userID = @uid);";
             MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
-            lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
+            lCommand.Parameters.AddWithValue("@uid", aUID);
             lCommand.Prepare();
             MySqlDataReader lReader = lCommand.ExecuteReader();
             while (lReader.Read())
