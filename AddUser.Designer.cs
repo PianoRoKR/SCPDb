@@ -124,6 +124,12 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dropClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropClass.FormattingEnabled = true;
+            this.dropClass.Items.AddRange(new object[] {
+            "L1",
+            "L2",
+            "L3",
+            "O4",
+            "O5"});
             this.dropClass.Location = new System.Drawing.Point(133, 157);
             this.dropClass.Name = "dropClass";
             this.dropClass.Size = new System.Drawing.Size(402, 21);
@@ -139,6 +145,7 @@
             this.buttonCancel.TabIndex = 13;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
@@ -149,6 +156,7 @@
             this.buttonSave.TabIndex = 12;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // AddUser
             // 

@@ -18,6 +18,7 @@ namespace SCPDb.Classes
         private int mUserID;
         private ClassType mClass;
         private string mName;
+        private string mPass;
 
         public int UserID
         {
@@ -47,11 +48,27 @@ namespace SCPDb.Classes
             }
         }
 
+        public string Password
+        {
+            get
+            {
+                return mPass;
+            }
+        }
+
         public User(int aUserID, int aClass, string aName)
         {
             mUserID = aUserID;
             mClass = (ClassType)aClass;
             mName = aName;
+        }
+
+        public User(int aUserID, int aClass, string aName, string aPass)
+        {
+            mUserID = aUserID;
+            mClass = (ClassType)aClass;
+            mName = aName;
+            mPass = aPass;
         }
 
         public override string ToString()
