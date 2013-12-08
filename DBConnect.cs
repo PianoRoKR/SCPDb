@@ -324,7 +324,7 @@ namespace SCPDb
 
         public int getAgentClass()
         {
-            return agentID;
+            return agentClass;
         }
 
         public string getSessionID()

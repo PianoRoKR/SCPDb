@@ -41,30 +41,7 @@ namespace SCPDb
             Application.Exit();
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void comboAss_SelectedIndexChanged(object sender, EventArgs e)
         {
