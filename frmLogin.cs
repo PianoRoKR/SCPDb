@@ -53,7 +53,7 @@ namespace SCPDb
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mDBConnect.CloseSSH();
+            mDBConnect.CloseAll();
         }
 
         private void frmLogin_Enter(object sender, EventArgs e)

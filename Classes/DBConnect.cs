@@ -42,11 +42,12 @@ namespace SCPDb.Classes
             mConnection = new MySqlConnection(lConnectionString);
             mSSH = new SSHConnector();
             mSSH.Connect();
+            this.OpenConnection();
         }
 
-        public bool CloseSSH()
+        public bool CloseAll()
         {
-            return mSSH.Disconnect();
+            return this.CloseConnection() & mSSH.Disconnect();
         }
 
         //open connection to database
@@ -120,24 +121,19 @@ namespace SCPDb.Classes
         public void Update()
         {
             string lQuery = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
+            //create mysql command
+            MySqlCommand lCmd = new MySqlCommand();
+            //Assign the query using CommandText
+            lCmd.CommandText = lQuery;
+            //Assign the connection using Connection
+            lCmd.Connection = mConnection;
 
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                //create mysql command
-                MySqlCommand lCmd = new MySqlCommand();
-                //Assign the query using CommandText
-                lCmd.CommandText = lQuery;
-                //Assign the connection using Connection
-                lCmd.Connection = mConnection;
+            //Execute query
+            lCmd.ExecuteNonQuery();
 
-                //Execute query
-                lCmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
-            }
-        }
+            //close connection
+            this.CloseConnection();
+       }
 
         //Delete statement
         public void Delete()
@@ -156,23 +152,20 @@ namespace SCPDb.Classes
         {
             string lQuery = "SELECT userID FROM Users WHERE userID = @uid AND passwd = @pass";
             int lUID = -1;
-            if (this.OpenConnection() == true)
+            MySqlCommand lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
+            lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+            lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
+            lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
+            SHA1 lHasher = SHA1.Create();
+            byte[] lHash = lHasher.ComputeHash(GetBytes(aPassword));
+            lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "").ToLower();
+            lUserIDLoginCmd.Prepare();
+            MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
+            while (lDataReader.Read())
             {
-                MySqlCommand lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
-                lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
-                lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
-                lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
-                SHA1 lHasher = SHA1.Create();
-                byte[] lHash = lHasher.ComputeHash(GetBytes(aPassword));
-                lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "").ToLower();
-                lUserIDLoginCmd.Prepare();
-                MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
-                while (lDataReader.Read())
-                {
-                    lUID = Convert.ToInt32(lDataReader["userID"]);
-                }
-                this.CloseConnection();
+                lUID = Convert.ToInt32(lDataReader["userID"]);
             }
+            lDataReader.Close();
             return lUID;
         }
 
@@ -180,19 +173,16 @@ namespace SCPDb.Classes
         {
             string lQuery = "SELECT uid FROM Users WHERE sessionid = @session";
             int lUID = -1;
-            if (this.OpenConnection() == true)
+            MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
+            lSessionLookup.Parameters.Add("@session", MySqlDbType.String);
+            lSessionLookup.Parameters["@session"].Value = aSession;
+            lSessionLookup.Prepare();
+            MySqlDataReader lDataReader = lSessionLookup.ExecuteReader();
+            while (lDataReader.Read())
             {
-                MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
-                lSessionLookup.Parameters.Add("@session", MySqlDbType.String);
-                lSessionLookup.Parameters["@session"].Value = aSession;
-                lSessionLookup.Prepare();
-                MySqlDataReader lDataReader = lSessionLookup.ExecuteReader();
-                while (lDataReader.Read())
-                {
-                    lUID = Convert.ToInt32(lDataReader["uid"]);
-                }
-                this.CloseConnection();
+                lUID = Convert.ToInt32(lDataReader["uid"]);
             }
+            lDataReader.Close();
             return lUID;
         }
 
@@ -205,26 +195,17 @@ namespace SCPDb.Classes
                 return false;
             else
             {
-                if (this.OpenConnection() == true)
+                MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
+                lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
+                lSessionCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                lSessionCmd.Parameters["@uid"].Value = lValidUID;
+                lSessionCmd.Parameters["@session"].Value = lSessionID;
+                if (lSessionCmd.ExecuteNonQuery() == 1)
                 {
-                    MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
-                    lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
-                    lSessionCmd.Parameters.Add("@uid", MySqlDbType.Int16);
-                    lSessionCmd.Parameters["@uid"].Value = lValidUID;
-                    lSessionCmd.Parameters["@session"].Value = lSessionID;
-                    if (lSessionCmd.ExecuteNonQuery() == 1)
-                    {
-                        mSessionID = lSessionID;
-                        this.CloseConnection();
-                        setActiveUser(lValidUID, true);
-                        mLoggedIn = true;
-                        return true;
-                    }
-                    else
-                    {
-                        this.CloseConnection();
-                        return false;
-                    }
+                    mSessionID = lSessionID;
+                    setActiveUser(lValidUID, true);
+                    mLoggedIn = true;
+                    return true;
                 }
                 return false;
             }
@@ -234,25 +215,17 @@ namespace SCPDb.Classes
         {
             string lQuery = "UPDATE Users SET sessionid = NULL WHERE userid=@uid";
             string lSessionID = DateTime.Now.ToFileTime().ToString();
-            if (this.OpenConnection() == true)
+            MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
+            lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
+            lSessionCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+            lSessionCmd.Parameters["@uid"].Value = aUID;
+            if (lSessionCmd.ExecuteNonQuery() == 1)
             {
-                MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
-                lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
-                lSessionCmd.Parameters.Add("@uid", MySqlDbType.Int16);
-                lSessionCmd.Parameters["@uid"].Value = aUID;
-                if (lSessionCmd.ExecuteNonQuery() == 1)
-                {
-                    mSessionID = "";
-                    this.CloseConnection();
-                    activeUser = null;
-                    mLoggedIn = false;
-                    return true;
-                }
-                else
-                {
-                    this.CloseConnection();
-                    return false;
-                }
+                mSessionID = "";
+                this.CloseConnection();
+                activeUser = null;
+                mLoggedIn = false;
+                return true;
             }
             return false;
         }
@@ -271,57 +244,40 @@ namespace SCPDb.Classes
             string lAgentName = "";
             int lAgentID = 0;
             ClassType lAgentClass = ClassType.L1;
-            //Open connection
-            if (!openConnection || this.OpenConnection() == true)
+            //Create Command
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Parameters.Add("@UID", MySqlDbType.Int16);
+            lCmd.Parameters["@UID"].Value = userID;
+
+            //Create a data reader and Execute the command
+            MySqlDataReader lDataReader = lCmd.ExecuteReader();
+
+            //Read the data and store them in the list
+            while (lDataReader.Read())
             {
-                //Create Command
-                MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
-                lCmd.Parameters.Add("@UID", MySqlDbType.Int16);
-                lCmd.Parameters["@UID"].Value = userID;
-
-                //Create a data reader and Execute the command
-                MySqlDataReader lDataReader = lCmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (lDataReader.Read())
-                {
-                    lAgentName = Convert.ToString(lDataReader["name"]);
-                    lAgentClass = (ClassType)Convert.ToInt32(lDataReader["class"]);
-                }
-                lAgentID = userID;
-                this.activeUser = new User(lAgentID, (int)lAgentClass, lAgentName);
-                //close Data Reader
-                lDataReader.Close();
-
-                //close Connection
-                if(openConnection)
-                    this.CloseConnection();
+                lAgentName = Convert.ToString(lDataReader["name"]);
+                lAgentClass = (ClassType)Convert.ToInt32(lDataReader["class"]);
             }
-            else throw new Exception("userLookupFailed");
+            lAgentID = userID;
+            this.activeUser = new User(lAgentID, (int)lAgentClass, lAgentName);
+            //close Data Reader
+            lDataReader.Close();
         }
 
         public List<string> getSCPDb()
         {
             List<string> lSCPList = new List<string>();
             string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE i.class < @class OR a.userId = @uid ORDER BY i.scpNum";
-            if (this.OpenConnection() == true && mLoggedIn)
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@class", activeUser.Class);
+            lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
+            while (lReader.Read())
             {
-                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
-                lCommand.Parameters.AddWithValue("@class", activeUser.Class);
-                lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
-                lCommand.Prepare();
-                MySqlDataReader lReader = lCommand.ExecuteReader();
-                while (lReader.Read())
-                {
-                    lSCPList.Add(lReader["scpNum"].ToString());
-                }
-
-                this.CloseConnection();
+                lSCPList.Add(lReader["scpNum"].ToString());
             }
-            else
-            {
-                return null;
-            }
+            lReader.Close();
             return lSCPList;
         }
 
@@ -332,27 +288,20 @@ namespace SCPDb.Classes
             int lUID;
             int lClass;
             string lName;
-            if (this.OpenConnection() == true && mLoggedIn)
-            {
-                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
-                lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
-                lCommand.Prepare();
-                MySqlDataReader lReader = lCommand.ExecuteReader();
+            
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
                 
-                while (lReader.Read())
-                {
-                    lUID = int.Parse(lReader["userID"].ToString());
-                    lClass = int.Parse(lReader["class"].ToString());
-                    lName = lReader["name"].ToString();
-                    lUserList.Add(new User(lUID,lClass,lName));
-                }
-                
-                this.CloseConnection();
-            }
-            else
+            while (lReader.Read())
             {
-                return null;
+                lUID = int.Parse(lReader["userID"].ToString());
+                lClass = int.Parse(lReader["class"].ToString());
+                lName = lReader["name"].ToString();
+                lUserList.Add(new User(lUID,lClass,lName));
             }
+            lReader.Close();
             return lUserList;
         }
         
@@ -363,26 +312,18 @@ namespace SCPDb.Classes
             int lUID;
             int lClass;
             string lName;
-            if (this.OpenConnection() == true && mLoggedIn)
-            {
-                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
-                lCommand.Prepare();
-                MySqlDataReader lReader = lCommand.ExecuteReader();
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
 
-                while (lReader.Read())
-                {
-                    lUID = int.Parse(lReader["userID"].ToString());
-                    lClass = int.Parse(lReader["class"].ToString());
-                    lName = lReader["name"].ToString();
-                    lUserList.Add(new User(lUID, lClass, lName));
-                }
-
-                this.CloseConnection();
-            }
-            else
+            while (lReader.Read())
             {
-                return null;
+                lUID = int.Parse(lReader["userID"].ToString());
+                lClass = int.Parse(lReader["class"].ToString());
+                lName = lReader["name"].ToString();
+                lUserList.Add(new User(lUID, lClass, lName));
             }
+            lReader.Close();
             return lUserList;
         }
 
@@ -390,53 +331,40 @@ namespace SCPDb.Classes
         {
             List<int> lSCPList = new List<int>();
             string lQuery = "SELECT i.scpNum FROM Item i WHERE i.scpNum NOT IN (SELECT DISTINCT scpNum FROM Assigned a WHERE userID = @UID2) AND i.scpNum IN (SELECT scpNum FROM Assigned a2 WHERE userID = @UID1);";
-            if (this.OpenConnection() == true && mLoggedIn)
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@UID2", aUID);
+            lCommand.Parameters.AddWithValue("@UID1", activeUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
+            while (lReader.Read())
             {
-                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
-                lCommand.Parameters.AddWithValue("@UID2", aUID);
-                lCommand.Parameters.AddWithValue("@UID1", activeUser.UserID);
-                lCommand.Prepare();
-                MySqlDataReader lReader = lCommand.ExecuteReader();
-                while (lReader.Read())
-                {
-                    lSCPList.Add(int.Parse(lReader["scpNum"].ToString()));
-                }
-
-                this.CloseConnection();
+                lSCPList.Add(int.Parse(lReader["scpNum"].ToString()));
             }
-            else
-            {
-                return null;
-            }
+            lReader.Close();
             return lSCPList;
         }
 
         public bool updateUserClass(User aUser, ClassType aClass)
         {
-            if (aClass >= this.getAgentClass() && this.getAgentClass() != ClassType.O5)
+            if (aClass > this.getAgentClass() && this.getAgentClass() != ClassType.O5)
                 return false;
-            if (this.OpenConnection() == true)
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            string lQuery = "UPDATE Users SET class = @class WHERE userID = @uid";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@class", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+            lCmd.Parameters["@class"].Value = (int)aClass;
+            lCmd.Parameters["@uid"].Value = aUser.UserID;
+            lCmd.ExecuteNonQuery();
+            this.setActiveUser(this.getAgentID(), false);
+            if (aClass > this.getAgentClass() && this.getAgentClass() != ClassType.O5)
             {
-                MySqlTransaction lTrans = mConnection.BeginTransaction();
-                string lQuery = "UPDATE Users SET class = @class WHERE userID = @uid";
-                MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
-                lCmd.Transaction = lTrans;
-                lCmd.Parameters.Add("@class", MySqlDbType.Int16);
-                lCmd.Parameters.Add("@uid", MySqlDbType.Int16);
-                lCmd.Parameters["@class"].Value = (int)aClass;
-                lCmd.Parameters["@uid"].Value = aUser.UserID;
-                lCmd.ExecuteNonQuery();
-                this.setActiveUser(this.getAgentID(), false);
-                if (aClass >= this.getAgentClass() && this.getAgentClass() != ClassType.O5)
-                {
-                    lTrans.Rollback();
-                    this.CloseConnection();
-                    return false;
-                }
-                else
-                    lTrans.Commit();
-                this.CloseConnection();
+                lTrans.Rollback();
+                return false;
             }
+            else
+                lTrans.Commit();
             return true;
         }
 
