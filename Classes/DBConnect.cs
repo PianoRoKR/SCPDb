@@ -156,9 +156,7 @@ namespace SCPDb.Classes
             lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
             lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
             lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
-            SHA1 lHasher = SHA1.Create();
-            byte[] lHash = lHasher.ComputeHash(GetBytes(aPassword));
-            lUserIDLoginCmd.Parameters["@pass"].Value = BitConverter.ToString(lHash).Replace("-", "").ToLower();
+            lUserIDLoginCmd.Parameters["@pass"].Value = Hash(aPassword);
             lUserIDLoginCmd.Prepare();
             MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
             while (lDataReader.Read())
@@ -168,6 +166,14 @@ namespace SCPDb.Classes
             lDataReader.Close();
             return lUID;
         }
+
+        public string Hash(string aPasswd)
+        {
+            SHA1 lHasher = SHA1.Create();
+            byte[] lHash = lHasher.ComputeHash(GetBytes(aPasswd));
+            return BitConverter.ToString(lHash).Replace("-", "").ToLower();
+        }
+
 
         public int SelectUID(string aSession)
         {
@@ -384,7 +390,47 @@ namespace SCPDb.Classes
             return true;
         }
 
+        public bool addUser(User aUser)
+        {
+            if ((ClassType)activeUser.UserID != ClassType.O5)
+                return false;
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            string lQuery = "INSERT INTO Users VALUES (@uid, @class, @name, @password, NULL)";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@class", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@name", MySqlDbType.String);
+            lCmd.Parameters.Add("@password", MySqlDbType.String);
+            lCmd.Parameters["@uid"].Value = aUser.UserID;
+            lCmd.Parameters["@class"].Value = (int)aUser.Class;
+            lCmd.Parameters["@name"].Value = aUser.Name;
+            lCmd.Parameters["@password"].Value = Hash(aUser.Password);
+            if (lCmd.ExecuteNonQuery() != 1)
+            {
+                lTrans.Rollback();
+                return false;
+            }
+            else
+                lTrans.Commit();
+            return true;
+        }
 
+        public int getNextUserID()
+        {
+            int nextUserID = -1;
+            string lQuery = "SELECT userID FROM Users ORDER BY userID DESC LIMIT 1";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            MySqlDataReader lReader = lCmd.ExecuteReader();
+            while (lReader.Read())
+            {
+                nextUserID = (int)lReader["userID"];
+            }
+            if (nextUserID == -1)
+                throw new Exception("Lookup failed!");
+            else
+                return ++nextUserID;
+        }
 
         //Count statement
         public int Count()
