@@ -281,6 +281,23 @@ namespace SCPDb.Classes
             return lSCPList;
         }
 
+        public List<int> getAssignableSCPsO5(int aUID)
+        {
+            List<int> lSCPList = new List<int>();
+            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE a.userId ~= @uid ORDER BY i.scpNum";
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
+            while (lReader.Read())
+            {
+                lSCPList.Add(Convert.ToInt32(lReader["scpNum"]));
+            }
+            lReader.Close();
+            return lSCPList;
+        }
+
+
         public List<User> getUsersManaged()
         {
             List<User> lUserList = new List<User>();

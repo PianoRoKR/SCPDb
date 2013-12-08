@@ -27,7 +27,11 @@ namespace SCPDb
             if(comboBox2.SelectedIndex != -1) {
                 bool updated = mDB.updateUserClass(mEditedUser, (ClassType)comboBox2.SelectedItem);
 
-                if (updated) { this.Close(); }
+                if (updated)
+                {
+                    mEditedUser.Class = (ClassType)comboBox2.SelectedItem; 
+                    this.Close(); 
+                }
                 else MessageBox.Show("Update failed!");
             }
             else MessageBox.Show("Select new class!");

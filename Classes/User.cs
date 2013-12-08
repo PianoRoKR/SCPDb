@@ -33,6 +33,10 @@ namespace SCPDb.Classes
             {
                 return mClass;
             }
+            set
+            {
+                mClass = value;
+            }
         }
 
         public string Name
