@@ -271,10 +271,27 @@ namespace SCPDb
             else throw new Exception("userLookupFailed");
         }
 
-        public List<String>[] getSCPDb()
+        public List<string> getSCPDb()
         {
-            /*string lQuery = "SELECT scpnum FROM Items WHERE userID = @UID";   */
-            return null;
+            List<string> lSCPList = new List<string>();
+            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE i.class < @class OR a.userId = @uid ORDER BY i.scpNum";
+            if (this.OpenConnection() == true && mLoggedIn)
+            {
+                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+                lCommand.Parameters.AddWithValue("@class", agentClass);
+                lCommand.Parameters.AddWithValue("@uid", agentID);
+                lCommand.Prepare();
+                MySqlDataReader lReader = lCommand.ExecuteReader();
+                while (lReader.Read())
+                {
+                    lSCPList.Add(lReader["scpNum"].ToString());
+                }
+            }
+            else
+            {
+                return null;
+            }
+            return lSCPList;
         }
 
         //Count statement

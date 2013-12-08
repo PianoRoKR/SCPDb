@@ -23,6 +23,16 @@ namespace SCPDb
         {
             agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
             agentClass.Text = "Class " + mDB.getAgentClass();
+            comboAss.Items.Clear();
+            comboUser.Items.Clear();
+            comboAss.Items.Add("Loading...");
+            comboUser.Items.Add("Loading...");
+            List<string> lSCPDb = mDB.getSCPDb();
+            comboAss.Items.Clear();
+            foreach (string lScp in lSCPDb)
+            {
+                comboAss.Items.Add(lScp);
+            }
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -52,6 +62,11 @@ namespace SCPDb
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboAss_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

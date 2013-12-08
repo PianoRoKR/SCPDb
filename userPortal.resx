@@ -127,13 +127,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="agentWelcome_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Open Sans, 27.75pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
   </data>
   <data name="agentWelcome_label.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 17</value>
   </data>
   <data name="agentWelcome_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 51</value>
+    <value>305, 42</value>
   </data>
   <data name="agentWelcome_label.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -193,7 +193,7 @@
     <value>True</value>
   </data>
   <data name="agentClass.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Open Sans, 27.75pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
   </data>
   <data name="agentClass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -202,7 +202,7 @@
     <value>24, 86</value>
   </data>
   <data name="agentClass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 51</value>
+    <value>117, 42</value>
   </data>
   <data name="agentClass.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -226,7 +226,7 @@
     <value>True</value>
   </data>
   <data name="labelAss.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Open Sans, 27.75pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
   </data>
   <data name="labelAss.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -235,7 +235,7 @@
     <value>24, 200</value>
   </data>
   <data name="labelAss.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 51</value>
+    <value>272, 42</value>
   </data>
   <data name="labelAss.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -445,7 +445,7 @@
     <value>True</value>
   </data>
   <data name="labelUser.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Open Sans, 27.75pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
   </data>
   <data name="labelUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -454,7 +454,7 @@
     <value>410, 200</value>
   </data>
   <data name="labelUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 51</value>
+    <value>276, 42</value>
   </data>
   <data name="labelUser.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>

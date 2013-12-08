@@ -70,6 +70,7 @@
             this.comboAss.FormattingEnabled = true;
             resources.ApplyResources(this.comboAss, "comboAss");
             this.comboAss.Name = "comboAss";
+            this.comboAss.SelectedIndexChanged += new System.EventHandler(this.comboAss_SelectedIndexChanged);
             // 
             // buttonSCPAdd
             // 
