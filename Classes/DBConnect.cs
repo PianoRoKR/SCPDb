@@ -216,7 +216,7 @@ namespace SCPDb.Classes
                     {
                         mSessionID = lSessionID;
                         this.CloseConnection();
-                        setActiveUser(lValidUID);
+                        setActiveUser(lValidUID, true);
                         mLoggedIn = true;
                         return true;
                     }
@@ -265,14 +265,14 @@ namespace SCPDb.Classes
         }
 
         //Select statement
-        private void setActiveUser(int userID)
+        private void setActiveUser(int userID, bool openConnection)
         {
             string lQuery = "SELECT name, class FROM Users WHERE userID = @UID";
             string lAgentName = "";
             int lAgentID = 0;
             ClassType lAgentClass = ClassType.L1;
             //Open connection
-            if (this.OpenConnection() == true)
+            if (!openConnection || this.OpenConnection() == true)
             {
                 //Create Command
                 MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
@@ -409,6 +409,35 @@ namespace SCPDb.Classes
             }
             return lSCPList;
         }
+
+        public bool updateUserClass(User aUser, ClassType aClass)
+        {
+            if (aClass >= this.getAgentClass() && this.getAgentClass() != ClassType.O5)
+                return false;
+            if (this.OpenConnection() == true)
+            {
+                MySqlTransaction lTrans = mConnection.BeginTransaction();
+                string lQuery = "UPDATE Users SET class = @class WHERE userID = @uid";
+                MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+                lCmd.Transaction = lTrans;
+                lCmd.Parameters.Add("@class", MySqlDbType.Int16);
+                lCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                lCmd.Parameters["@class"].Value = (int)aClass;
+                lCmd.Parameters["@uid"].Value = aUser.UserID;
+                lCmd.ExecuteNonQuery();
+                this.setActiveUser(this.getAgentID(), false);
+                if (aClass >= this.getAgentClass() && this.getAgentClass() != ClassType.O5)
+                {
+                    lTrans.Rollback();
+                    this.CloseConnection();
+                    return false;
+                }
+                else
+                    lTrans.Commit();
+            }
+            return true;
+        }
+
         //Count statement
         public int Count()
         {
