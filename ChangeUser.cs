@@ -40,7 +40,7 @@ namespace SCPDb
             lblID.Text = mEditedUser.UserID.ToString();
             lblUserName.Text = mEditedUser.Name;
             comboBox2.Items.Clear();
-            for (int i = 1; i < (int)mDB.getAgentClass(); i++)
+            for (int i = 1; i <= (int)mDB.getAgentClass(); i++)
             {
                 if (i != (int)mEditedUser.Class)
                 {

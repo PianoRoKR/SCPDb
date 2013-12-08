@@ -294,7 +294,8 @@ namespace SCPDb.Classes
                 lDataReader.Close();
 
                 //close Connection
-                this.CloseConnection();
+                if(openConnection)
+                    this.CloseConnection();
             }
             else throw new Exception("userLookupFailed");
         }
@@ -345,7 +346,7 @@ namespace SCPDb.Classes
                     lName = lReader["name"].ToString();
                     lUserList.Add(new User(lUID,lClass,lName));
                 }
-
+                
                 this.CloseConnection();
             }
             else
@@ -434,6 +435,7 @@ namespace SCPDb.Classes
                 }
                 else
                     lTrans.Commit();
+                this.CloseConnection();
             }
             return true;
         }
