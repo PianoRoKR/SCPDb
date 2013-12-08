@@ -98,7 +98,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.No;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.button1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(259, 434);
@@ -126,6 +126,7 @@
             this.Text = "SCPDb Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Enter += new System.EventHandler(this.frmLogin_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -27,17 +27,23 @@ namespace SCPDb
             if (!int.TryParse(tbUserName.Text, out lUID) || lUID == -1)
             {
                 MessageBox.Show("Invalid user id!");
+                tbUserName.Text = "";
                 tbPassword.Text = "";
                 return;
             }
             if (mDBConnect.ExecuteLogin(lUID, lPassword) == true)
             {
                 userPortal portal = new userPortal(mDBConnect, this);
+                tbUserName.Text = "";
+                tbPassword.Text = "";
                 portal.Show();
                 this.Hide();
             }
             else
+            {
                 MessageBox.Show("Log in failed!");
+                tbPassword.Text = "";
+            }
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -48,6 +54,11 @@ namespace SCPDb
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             mDBConnect.CloseSSH();
+        }
+
+        private void frmLogin_Enter(object sender, EventArgs e)
+        {
+            tbUserName.Focus();
         }
 
 

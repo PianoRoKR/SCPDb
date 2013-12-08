@@ -36,7 +36,7 @@
             this.buttonSCPAdd = new System.Windows.Forms.Button();
             this.buttonSCPEdit = new System.Windows.Forms.Button();
             this.buttonSCPView = new System.Windows.Forms.Button();
-            this.buttonUserView = new System.Windows.Forms.Button();
+            this.buttonUserClassChange = new System.Windows.Forms.Button();
             this.buttonUserAssign = new System.Windows.Forms.Button();
             this.labelUser = new System.Windows.Forms.Label();
             this.assignSCP_listBox = new System.Windows.Forms.ListBox();
@@ -95,13 +95,13 @@
             this.buttonSCPView.Name = "buttonSCPView";
             this.buttonSCPView.UseVisualStyleBackColor = true;
             // 
-            // buttonUserView
+            // buttonUserClassChange
             // 
-            this.buttonUserView.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.buttonUserView, "buttonUserView");
-            this.buttonUserView.Name = "buttonUserView";
-            this.buttonUserView.UseVisualStyleBackColor = true;
-            this.buttonUserView.Click += new System.EventHandler(this.buttonUserView_Click);
+            this.buttonUserClassChange.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonUserClassChange, "buttonUserClassChange");
+            this.buttonUserClassChange.Name = "buttonUserClassChange";
+            this.buttonUserClassChange.UseVisualStyleBackColor = true;
+            this.buttonUserClassChange.Click += new System.EventHandler(this.buttonUserChangeClass_Click);
             // 
             // buttonUserAssign
             // 
@@ -201,7 +201,7 @@
             this.Controls.Add(this.pbPic);
             this.Controls.Add(this.usersManaged_listBox);
             this.Controls.Add(this.assignSCP_listBox);
-            this.Controls.Add(this.buttonUserView);
+            this.Controls.Add(this.buttonUserClassChange);
             this.Controls.Add(this.buttonUserAssign);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.buttonSCPView);
@@ -233,7 +233,7 @@
         private System.Windows.Forms.Button buttonSCPAdd;
         private System.Windows.Forms.Button buttonSCPEdit;
         private System.Windows.Forms.Button buttonSCPView;
-        private System.Windows.Forms.Button buttonUserView;
+        private System.Windows.Forms.Button buttonUserClassChange;
         private System.Windows.Forms.Button buttonUserAssign;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.ListBox usersManaged_listBox;

@@ -55,10 +55,13 @@ namespace SCPDb
             this.Close();
         }
 
-        private void buttonUserView_Click(object sender, EventArgs e)
+        private void buttonUserChangeClass_Click(object sender, EventArgs e)
         {
+            if (usersManaged_listBox.SelectedItem == null)
+                return;
             User lUser = (User)usersManaged_listBox.SelectedItem;
-            
+            ChangeUser lForm = new ChangeUser(mDB, lUser);
+            lForm.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

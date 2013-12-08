@@ -333,31 +333,31 @@
   <data name="&gt;&gt;buttonSCPView.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="buttonUserView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonUserClassChange.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonUserView.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="buttonUserClassChange.Location" type="System.Drawing.Point, System.Drawing">
     <value>1147, 620</value>
   </data>
-  <data name="buttonUserView.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="buttonUserClassChange.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
   </data>
-  <data name="buttonUserView.TabIndex" type="System.Int32, mscorlib">
+  <data name="buttonUserClassChange.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="buttonUserView.Text" xml:space="preserve">
-    <value>View</value>
+  <data name="buttonUserClassChange.Text" xml:space="preserve">
+    <value>Change Class</value>
   </data>
-  <data name="&gt;&gt;buttonUserView.Name" xml:space="preserve">
-    <value>buttonUserView</value>
+  <data name="&gt;&gt;buttonUserClassChange.Name" xml:space="preserve">
+    <value>buttonUserClassChange</value>
   </data>
-  <data name="&gt;&gt;buttonUserView.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonUserClassChange.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonUserView.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonUserClassChange.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;buttonUserView.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonUserClassChange.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="buttonUserAssign.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
