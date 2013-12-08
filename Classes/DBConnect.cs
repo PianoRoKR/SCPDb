@@ -222,7 +222,6 @@ namespace SCPDb.Classes
             if (lSessionCmd.ExecuteNonQuery() == 1)
             {
                 mSessionID = "";
-                this.CloseConnection();
                 activeUser = null;
                 mLoggedIn = false;
                 return true;
@@ -284,7 +283,7 @@ namespace SCPDb.Classes
         public List<int> getAssignableSCPsO5(int aUID)
         {
             List<int> lSCPList = new List<int>();
-            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE a.userId ~= @uid ORDER BY i.scpNum";
+            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE a.userId <> @uid OR a.userId = NULL ORDER BY i.scpNum";
             MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
             lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
             lCommand.Prepare();
@@ -384,6 +383,8 @@ namespace SCPDb.Classes
                 lTrans.Commit();
             return true;
         }
+
+
 
         //Count statement
         public int Count()
