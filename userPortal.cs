@@ -161,5 +161,15 @@ namespace SCPDb
             
             MessageBox.Show("Are you sure you want to delete person X","Delete User", MessageBoxButtons.OKCancel);
         }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (usersManaged_listBox.SelectedItem == null)
+                usersManaged_listBox.SelectedIndex = 0;
+            RemoveUserAss michaelUserIsAnAss = new RemoveUserAss();
+            michaelUserIsAnAss.ShowDialog();
+        }
+
+
     }
 }

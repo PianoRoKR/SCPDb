@@ -92,6 +92,12 @@
     <Compile Include="ChangeUser.Designer.cs">
       <DependentUpon>ChangeUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoveUserAss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveUserAss.Designer.cs">
+      <DependentUpon>RemoveUserAss.cs</DependentUpon>
+    </Compile>
     <Compile Include="userPortal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="ChangeUser.resx">
       <DependentUpon>ChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveUserAss.resx">
+      <DependentUpon>RemoveUserAss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userPortal.resx">
       <DependentUpon>userPortal.cs</DependentUpon>

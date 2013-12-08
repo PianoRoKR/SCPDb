@@ -483,30 +483,6 @@
   <data name="&gt;&gt;usersManaged_listBox.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="pbPic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>872, 17</value>
-  </data>
-  <data name="pbPic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 150</value>
-  </data>
-  <data name="pbPic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="pbPic.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;pbPic.Name" xml:space="preserve">
-    <value>pbPic</value>
-  </data>
-  <data name="&gt;&gt;pbPic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbPic.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pbPic.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="addUsers_listBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 14.25pt</value>
   </data>
@@ -725,31 +701,31 @@ ACCESS DENIED</value>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="buttonRemove.Location" type="System.Drawing.Point, System.Drawing">
     <value>1020, 620</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="buttonRemove.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="buttonRemove.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
+  <data name="buttonRemove.Text" xml:space="preserve">
     <value>Remove Assignment</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;buttonRemove.Name" xml:space="preserve">
+    <value>buttonRemove</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonRemove.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonRemove.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonRemove.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="pbPic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -777,7 +753,7 @@ ACCESS DENIED</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbPic.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

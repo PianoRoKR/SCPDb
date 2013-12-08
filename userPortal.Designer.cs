@@ -41,7 +41,6 @@
             this.labelUser = new System.Windows.Forms.Label();
             this.assignSCP_listBox = new System.Windows.Forms.ListBox();
             this.usersManaged_listBox = new System.Windows.Forms.ListBox();
-            this.pbPic = new System.Windows.Forms.PictureBox();
             this.addUsers_listBox = new System.Windows.Forms.ListBox();
             this.lblSuper = new System.Windows.Forms.Label();
             this.buttonUserAdd = new System.Windows.Forms.Button();
@@ -49,7 +48,8 @@
             this.buttonUserDelete = new System.Windows.Forms.Button();
             this.lblO5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.pbPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,12 +187,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
+            // buttonRemove
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonRemove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonRemove, "buttonRemove");
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // pbPic
             // 
@@ -206,7 +207,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonUserDelete);
             this.Controls.Add(this.buttonUserEdit);
@@ -261,6 +262,6 @@
         private System.Windows.Forms.Button buttonUserDelete;
         private System.Windows.Forms.Label lblO5;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRemove;
     }
 }
