@@ -294,6 +294,29 @@ namespace SCPDb
             return lSCPList;
         }
 
+        public List<string> getUsersManagaed()
+        {
+            List<string> lSCPList = new List<string>();
+            string lQuery = "SELECT ";
+            if (this.OpenConnection() == true && mLoggedIn)
+            {
+                MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+                lCommand.Parameters.AddWithValue("@class", agentClass);
+                lCommand.Parameters.AddWithValue("@uid", agentID);
+                lCommand.Prepare();
+                MySqlDataReader lReader = lCommand.ExecuteReader();
+                while (lReader.Read())
+                {
+                    lSCPList.Add(lReader["scpNum"].ToString());
+                }
+            }
+            else
+            {
+                return null;
+            }
+            return lSCPList;
+        }
+
         //Count statement
         public int Count()
         {

@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentWelcome_label.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="logout.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -163,7 +163,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="logout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>828, 637</value>
+    <value>988, 722</value>
   </data>
   <data name="logout.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 30</value>
@@ -184,7 +184,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logout.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="agentClass.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -220,7 +220,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentClass.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="labelAss.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -253,10 +253,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelAss.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="buttonSCPAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 461</value>
+    <value>33, 620</value>
   </data>
   <data name="buttonSCPAdd.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -277,13 +277,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPAdd.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="buttonSCPEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSCPEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 461</value>
+    <value>160, 620</value>
   </data>
   <data name="buttonSCPEdit.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -304,13 +304,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPEdit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="buttonSCPView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSCPView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 461</value>
+    <value>287, 620</value>
   </data>
   <data name="buttonSCPView.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -331,13 +331,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPView.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="buttonUserView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonUserView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>751, 461</value>
+    <value>790, 620</value>
   </data>
   <data name="buttonUserView.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -358,13 +358,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonUserView.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="buttonUserEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonUserEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 461</value>
+    <value>536, 620</value>
   </data>
   <data name="buttonUserEdit.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -385,7 +385,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonUserEdit.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="labelUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -397,16 +397,16 @@
     <value>NoControl</value>
   </data>
   <data name="labelUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>492, 200</value>
+    <value>529, 200</value>
   </data>
   <data name="labelUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 42</value>
+    <value>296, 42</value>
   </data>
   <data name="labelUser.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="labelUser.Text" xml:space="preserve">
-    <value>User Managed</value>
+    <value>Users Managed</value>
   </data>
   <data name="&gt;&gt;labelUser.Name" xml:space="preserve">
     <value>labelUser</value>
@@ -418,64 +418,55 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelUser.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
-  <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>454, 237, 0, 273</value>
-  </metadata>
-  <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>454, 237</value>
-  </metadata>
-  <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 273</value>
-  </metadata>
-  <data name="shapeContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="assignSCP_listBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 18pt</value>
   </data>
-  <data name="shapeContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="assignSCP_listBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
-  <data name="shapeContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>915, 679</value>
+  <data name="assignSCP_listBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 245</value>
   </data>
-  <data name="shapeContainer1.TabIndex" type="System.Int32, mscorlib">
+  <data name="assignSCP_listBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 352</value>
+  </data>
+  <data name="assignSCP_listBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;shapeContainer1.Name" xml:space="preserve">
-    <value>shapeContainer1</value>
+  <data name="&gt;&gt;assignSCP_listBox.Name" xml:space="preserve">
+    <value>assignSCP_listBox</value>
   </data>
-  <data name="&gt;&gt;shapeContainer1.Type" xml:space="preserve">
-    <value>Microsoft.VisualBasic.PowerPacks.ShapeContainer, Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="&gt;&gt;assignSCP_listBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;shapeContainer1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;assignSCP_listBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;shapeContainer1.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;assignSCP_listBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <metadata name="lineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>454, 237, 0, 273</value>
-  </metadata>
-  <metadata name="lineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>454, 237</value>
-  </metadata>
-  <metadata name="lineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 273</value>
-  </metadata>
-  <data name="lineShape1.BorderColor" type="System.Drawing.Color, System.Drawing">
-    <value>ButtonHighlight</value>
+  <data name="usersManaged_listBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>536, 245</value>
   </data>
-  <data name="lineShape1.X1" type="System.Int32, mscorlib">
-    <value>454</value>
+  <data name="usersManaged_listBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 355</value>
   </data>
-  <data name="lineShape1.X2" type="System.Int32, mscorlib">
-    <value>454</value>
+  <data name="usersManaged_listBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
-  <data name="lineShape1.Y1" type="System.Int32, mscorlib">
-    <value>237</value>
+  <data name="&gt;&gt;usersManaged_listBox.Name" xml:space="preserve">
+    <value>usersManaged_listBox</value>
   </data>
-  <data name="lineShape1.Y2" type="System.Int32, mscorlib">
-    <value>510</value>
+  <data name="&gt;&gt;usersManaged_listBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usersManaged_listBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;usersManaged_listBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -484,16 +475,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>915, 679</value>
+    <value>1075, 764</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>userPortal</value>
-  </data>
-  <data name="&gt;&gt;lineShape1.Name" xml:space="preserve">
-    <value>lineShape1</value>
-  </data>
-  <data name="&gt;&gt;lineShape1.Type" xml:space="preserve">
-    <value>Microsoft.VisualBasic.PowerPacks.LineShape, Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>userPortal</value>

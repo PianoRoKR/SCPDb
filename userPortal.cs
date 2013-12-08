@@ -23,15 +23,17 @@ namespace SCPDb
         {
             agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
             agentClass.Text = "Class " + mDB.getAgentClass();
-            comboAss.Items.Clear();
-            comboUser.Items.Clear();
-            comboAss.Items.Add("Loading...");
-            comboUser.Items.Add("Loading...");
+            assignSCP_listBox.Items.Clear();
+            usersManaged_listBox.Items.Clear();
+            assignSCP_listBox.Items.Add("Loading...");
+            usersManaged_listBox.Items.Add("Loading...");
+
+
             List<string> lSCPDb = mDB.getSCPDb();
-            comboAss.Items.Clear();
+            assignSCP_listBox.Items.Clear();
             foreach (string lScp in lSCPDb)
             {
-                comboAss.Items.Add(lScp);
+                assignSCP_listBox.Items.Add(lScp);
             }
         }
 
@@ -43,10 +45,9 @@ namespace SCPDb
 
         
 
-        private void comboAss_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
         
     }

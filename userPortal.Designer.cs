@@ -39,8 +39,8 @@
             this.buttonUserView = new System.Windows.Forms.Button();
             this.buttonUserEdit = new System.Windows.Forms.Button();
             this.labelUser = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.assignSCP_listBox = new System.Windows.Forms.ListBox();
+            this.usersManaged_listBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // agentWelcome_label
@@ -105,24 +105,29 @@
             resources.ApplyResources(this.labelUser, "labelUser");
             this.labelUser.Name = "labelUser";
             // 
-            // shapeContainer1
+            // assignSCP_listBox
             // 
-            resources.ApplyResources(this.shapeContainer1, "shapeContainer1");
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.TabStop = false;
+            this.assignSCP_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            resources.ApplyResources(this.assignSCP_listBox, "assignSCP_listBox");
+            this.assignSCP_listBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.assignSCP_listBox.FormattingEnabled = true;
+            this.assignSCP_listBox.Name = "assignSCP_listBox";
             // 
-            // lineShape1
+            // usersManaged_listBox
             // 
-            resources.ApplyResources(this.lineShape1, "lineShape1");
-            this.lineShape1.Name = "lineShape1";
+            this.usersManaged_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            this.usersManaged_listBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.usersManaged_listBox.FormattingEnabled = true;
+            resources.ApplyResources(this.usersManaged_listBox, "usersManaged_listBox");
+            this.usersManaged_listBox.Name = "usersManaged_listBox";
             // 
             // userPortal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.Controls.Add(this.usersManaged_listBox);
+            this.Controls.Add(this.assignSCP_listBox);
             this.Controls.Add(this.buttonUserView);
             this.Controls.Add(this.buttonUserEdit);
             this.Controls.Add(this.labelUser);
@@ -133,7 +138,6 @@
             this.Controls.Add(this.agentClass);
             this.Controls.Add(this.logout);
             this.Controls.Add(this.agentWelcome_label);
-            this.Controls.Add(this.shapeContainer1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "userPortal";
@@ -156,7 +160,7 @@
         private System.Windows.Forms.Button buttonUserView;
         private System.Windows.Forms.Button buttonUserEdit;
         private System.Windows.Forms.Label labelUser;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.ListBox usersManaged_listBox;
+        private System.Windows.Forms.ListBox assignSCP_listBox;
     }
 }
