@@ -34,7 +34,12 @@ namespace SCPDb
         private void comboUser_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboItem.Items.Clear();
-            List<int> lList = mDB.getAssignableSCP(((User)comboUser.SelectedItem).UserID);
+            List<int> lList;
+
+            // make new list of user assigned to and remove them from list
+            if ((int)mDB.getAgentClass() == 5) { lList = mDB.getSCPDb(); }
+            else { lList = mDB.getAssignableSCP(((User)comboUser.SelectedItem).UserID); }
+            
             foreach (int lSCP in lList)
             {
                 comboItem.Items.Add(lSCP);
@@ -44,6 +49,7 @@ namespace SCPDb
         private void buttonSave_Click(object sender, EventArgs e)
         {
             int item = (int)comboItem.SelectedItem;
+            this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

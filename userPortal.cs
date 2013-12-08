@@ -33,14 +33,13 @@ namespace SCPDb
             usersManaged_listBox.Items.Add("Loading...");
             mUserList = mDB.getUsersManaged();
 
-            List<string> lSCPDb = mDB.getSCPDb();
+            List<int> lSCPDb = mDB.getSCPDb();
             assignSCP_listBox.Items.Clear();
-            foreach (string lScp in lSCPDb)
+            foreach (int lScp in lSCPDb)
             {
                 assignSCP_listBox.Items.Add(lScp);
             }
-
-            ;
+            
             usersManaged_listBox.Items.Clear();
             foreach(User lUser in mUserList)
             {

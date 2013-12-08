@@ -264,9 +264,9 @@ namespace SCPDb.Classes
             lDataReader.Close();
         }
 
-        public List<string> getSCPDb()
+        public List<int> getSCPDb()
         {
-            List<string> lSCPList = new List<string>();
+            List<int> lSCPList = new List<int>();
             string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE i.class < @class OR a.userId = @uid ORDER BY i.scpNum";
             MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
             lCommand.Parameters.AddWithValue("@class", activeUser.Class);
