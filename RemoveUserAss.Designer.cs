@@ -70,6 +70,7 @@
             // 
             // comboUser
             // 
+            this.comboUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUser.FormattingEnabled = true;
             this.comboUser.Location = new System.Drawing.Point(42, 46);
             this.comboUser.Name = "comboUser";
@@ -91,6 +92,7 @@
             // comboItem
             // 
             this.comboItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboItem.FormattingEnabled = true;
             this.comboItem.Location = new System.Drawing.Point(274, 46);
             this.comboItem.Name = "comboItem";
@@ -112,7 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RemoveUserAss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RemoveUserAss";
+            this.Text = "Remove User Assignment";
             this.ResumeLayout(false);
             this.PerformLayout();
 

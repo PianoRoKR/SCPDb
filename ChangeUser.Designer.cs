@@ -167,7 +167,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ChangeUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User";
+            this.Text = "Change User Class";
             this.Load += new System.EventHandler(this.ChangeUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

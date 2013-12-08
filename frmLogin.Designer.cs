@@ -122,6 +122,7 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.Text = "SCPDb Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);

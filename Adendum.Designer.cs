@@ -92,7 +92,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Adendum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adendum";
+            this.Text = "Add Adendum";
             this.ResumeLayout(false);
             this.PerformLayout();
 

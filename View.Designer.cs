@@ -147,7 +147,7 @@
             this.Controls.Add(this.scpNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "View";
-            this.Text = "View";
+            this.Text = "SCP View";
             this.ResumeLayout(false);
             this.PerformLayout();
 

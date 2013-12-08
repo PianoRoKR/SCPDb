@@ -143,7 +143,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Item";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Item";
+            this.Text = "New Item";
             this.ResumeLayout(false);
             this.PerformLayout();
 
