@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCPDb", "SCPDb.csproj", "{D1D15DFC-E50A-4AD3-A26B-F972D6F110DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hasher", "Hasher\Hasher.csproj", "{A41CB105-F15D-4A4E-87FB-7C9B73CDF700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{D1D15DFC-E50A-4AD3-A26B-F972D6F110DF}.Debug|x86.Build.0 = Debug|x86
 		{D1D15DFC-E50A-4AD3-A26B-F972D6F110DF}.Release|x86.ActiveCfg = Release|x86
 		{D1D15DFC-E50A-4AD3-A26B-F972D6F110DF}.Release|x86.Build.0 = Release|x86
+		{A41CB105-F15D-4A4E-87FB-7C9B73CDF700}.Debug|x86.ActiveCfg = Debug|x86
+		{A41CB105-F15D-4A4E-87FB-7C9B73CDF700}.Debug|x86.Build.0 = Debug|x86
+		{A41CB105-F15D-4A4E-87FB-7C9B73CDF700}.Release|x86.ActiveCfg = Release|x86
+		{A41CB105-F15D-4A4E-87FB-7C9B73CDF700}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
