@@ -108,5 +108,59 @@ namespace SCPDb
             AssignUser lForm = new AssignUser(mDB, ((User)usersManaged_listBox.SelectedItem).UserID, mUserList);
             lForm.ShowDialog();
         }
+
+        private void buttonSCPAdd_Click(object sender, EventArgs e)
+        {
+            if (assignSCP_listBox.SelectedItem == null)
+                MessageBox.Show("Please Select an SCP item to add an Adendum.");
+            else
+            {
+                Adendum ad = new Adendum();
+                ad.ShowDialog();
+            }
+
+
+        }
+
+        private void buttonSCPEdit_Click(object sender, EventArgs e)
+        {
+            if (assignSCP_listBox.SelectedItem == null)
+                MessageBox.Show("Please Select an SCP item to Edit.");
+            else
+            {
+                Item item = new Item();
+                item.ShowDialog();
+            }
+        }
+
+        private void buttonSCPView_Click(object sender, EventArgs e)
+        {
+            if (assignSCP_listBox.SelectedItem == null)
+                MessageBox.Show("Please Select an SCP item to View.");
+            else
+            {
+                View view = new View();
+                view.ShowDialog();
+            }
+        }
+
+        private void buttonUserAdd_Click(object sender, EventArgs e)
+        {
+            AddUser add = new AddUser();
+            add.ShowDialog();
+        }
+
+        private void buttonUserEdit_Click(object sender, EventArgs e)
+        {
+            //NEED TO CHANGE CONSTRUCTOR TO LOAD USER SELECTED INFO
+            AddUser add = new AddUser();
+            add.ShowDialog();
+        }
+
+        private void buttonUserDelete_Click(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show("Are you sure you want to delete person X","Delete User", MessageBoxButtons.OKCancel);
+        }
     }
 }

@@ -41,7 +41,6 @@
             this.labelUser = new System.Windows.Forms.Label();
             this.assignSCP_listBox = new System.Windows.Forms.ListBox();
             this.usersManaged_listBox = new System.Windows.Forms.ListBox();
-            this.pbPic = new System.Windows.Forms.PictureBox();
             this.addUsers_listBox = new System.Windows.Forms.ListBox();
             this.lblSuper = new System.Windows.Forms.Label();
             this.buttonUserAdd = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.buttonUserDelete = new System.Windows.Forms.Button();
             this.lblO5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pbPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +80,7 @@
             resources.ApplyResources(this.buttonSCPAdd, "buttonSCPAdd");
             this.buttonSCPAdd.Name = "buttonSCPAdd";
             this.buttonSCPAdd.UseVisualStyleBackColor = true;
+            this.buttonSCPAdd.Click += new System.EventHandler(this.buttonSCPAdd_Click);
             // 
             // buttonSCPEdit
             // 
@@ -87,6 +88,7 @@
             resources.ApplyResources(this.buttonSCPEdit, "buttonSCPEdit");
             this.buttonSCPEdit.Name = "buttonSCPEdit";
             this.buttonSCPEdit.UseVisualStyleBackColor = true;
+            this.buttonSCPEdit.Click += new System.EventHandler(this.buttonSCPEdit_Click);
             // 
             // buttonSCPView
             // 
@@ -94,6 +96,7 @@
             resources.ApplyResources(this.buttonSCPView, "buttonSCPView");
             this.buttonSCPView.Name = "buttonSCPView";
             this.buttonSCPView.UseVisualStyleBackColor = true;
+            this.buttonSCPView.Click += new System.EventHandler(this.buttonSCPView_Click);
             // 
             // buttonUserClassChange
             // 
@@ -132,13 +135,6 @@
             this.usersManaged_listBox.FormattingEnabled = true;
             this.usersManaged_listBox.Name = "usersManaged_listBox";
             // 
-            // pbPic
-            // 
-            this.pbPic.Image = global::SCPDb.Properties.Resources.logo;
-            resources.ApplyResources(this.pbPic, "pbPic");
-            this.pbPic.Name = "pbPic";
-            this.pbPic.TabStop = false;
-            // 
             // addUsers_listBox
             // 
             this.addUsers_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
@@ -158,6 +154,7 @@
             resources.ApplyResources(this.buttonUserAdd, "buttonUserAdd");
             this.buttonUserAdd.Name = "buttonUserAdd";
             this.buttonUserAdd.UseVisualStyleBackColor = true;
+            this.buttonUserAdd.Click += new System.EventHandler(this.buttonUserAdd_Click);
             // 
             // buttonUserEdit
             // 
@@ -165,6 +162,7 @@
             resources.ApplyResources(this.buttonUserEdit, "buttonUserEdit");
             this.buttonUserEdit.Name = "buttonUserEdit";
             this.buttonUserEdit.UseVisualStyleBackColor = true;
+            this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
             // 
             // buttonUserDelete
             // 
@@ -172,6 +170,7 @@
             resources.ApplyResources(this.buttonUserDelete, "buttonUserDelete");
             this.buttonUserDelete.Name = "buttonUserDelete";
             this.buttonUserDelete.UseVisualStyleBackColor = true;
+            this.buttonUserDelete.Click += new System.EventHandler(this.buttonUserDelete_Click);
             // 
             // lblO5
             // 
@@ -186,6 +185,13 @@
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
             this.textBox1.Name = "textBox1";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // pbPic
+            // 
+            this.pbPic.Image = global::SCPDb.Properties.Resources.logo;
+            resources.ApplyResources(this.pbPic, "pbPic");
+            this.pbPic.Name = "pbPic";
+            this.pbPic.TabStop = false;
             // 
             // userPortal
             // 
