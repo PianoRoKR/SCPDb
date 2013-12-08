@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="agentWelcome_label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="agentWelcome_label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -147,9 +151,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentWelcome_label.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>11</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logout.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -181,7 +184,295 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logout.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="agentClass.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="agentClass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="agentClass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Open Sans, 27.75pt, style=Bold</value>
+  </data>
+  <data name="agentClass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="agentClass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 86</value>
+  </data>
+  <data name="agentClass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 51</value>
+  </data>
+  <data name="agentClass.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="agentClass.Text" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="&gt;&gt;agentClass.Name" xml:space="preserve">
+    <value>agentClass</value>
+  </data>
+  <data name="&gt;&gt;agentClass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;agentClass.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;agentClass.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="labelAss.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelAss.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Open Sans, 27.75pt, style=Bold</value>
+  </data>
+  <data name="labelAss.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelAss.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 200</value>
+  </data>
+  <data name="labelAss.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 51</value>
+  </data>
+  <data name="labelAss.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelAss.Text" xml:space="preserve">
+    <value>Assigned SCP</value>
+  </data>
+  <data name="&gt;&gt;labelAss.Name" xml:space="preserve">
+    <value>labelAss</value>
+  </data>
+  <data name="&gt;&gt;labelAss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelAss.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelAss.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="comboAss.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 254</value>
+  </data>
+  <data name="comboAss.Size" type="System.Drawing.Size, System.Drawing">
+    <value>371, 21</value>
+  </data>
+  <data name="comboAss.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;comboAss.Name" xml:space="preserve">
+    <value>comboAss</value>
+  </data>
+  <data name="&gt;&gt;comboAss.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboAss.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboAss.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="buttonSCPAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 461</value>
+  </data>
+  <data name="buttonSCPAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonSCPAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="buttonSCPAdd.Text" xml:space="preserve">
+    <value>Add Adendum</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPAdd.Name" xml:space="preserve">
+    <value>buttonSCPAdd</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPAdd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPAdd.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonSCPEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSCPEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 461</value>
+  </data>
+  <data name="buttonSCPEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonSCPEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="buttonSCPEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPEdit.Name" xml:space="preserve">
+    <value>buttonSCPEdit</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPEdit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonSCPView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSCPView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 461</value>
+  </data>
+  <data name="buttonSCPView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonSCPView.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="buttonSCPView.Text" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPView.Name" xml:space="preserve">
+    <value>buttonSCPView</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSCPView.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonUserView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonUserView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUserView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>669, 461</value>
+  </data>
+  <data name="buttonUserView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonUserView.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="buttonUserView.Text" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="&gt;&gt;buttonUserView.Name" xml:space="preserve">
+    <value>buttonUserView</value>
+  </data>
+  <data name="&gt;&gt;buttonUserView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUserView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUserView.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="buttonUserEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonUserEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUserEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>419, 461</value>
+  </data>
+  <data name="buttonUserEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonUserEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="buttonUserEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Name" xml:space="preserve">
+    <value>buttonUserEdit</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="comboUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="comboUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>419, 254</value>
+  </data>
+  <data name="comboUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>371, 21</value>
+  </data>
+  <data name="comboUser.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;comboUser.Name" xml:space="preserve">
+    <value>comboUser</value>
+  </data>
+  <data name="&gt;&gt;comboUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboUser.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboUser.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="labelUser.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelUser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Open Sans, 27.75pt, style=Bold</value>
+  </data>
+  <data name="labelUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 200</value>
+  </data>
+  <data name="labelUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 51</value>
+  </data>
+  <data name="labelUser.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="labelUser.Text" xml:space="preserve">
+    <value>User Managed</value>
+  </data>
+  <data name="&gt;&gt;labelUser.Name" xml:space="preserve">
+    <value>labelUser</value>
+  </data>
+  <data name="&gt;&gt;labelUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelUser.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelUser.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

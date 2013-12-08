@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adendum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adendum.Designer.cs">
+      <DependentUpon>Adendum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignUser.Designer.cs">
+      <DependentUpon>AssignUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -57,17 +69,38 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SSHConnect.cs" />
+    <Compile Include="ChangeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeUser.Designer.cs">
+      <DependentUpon>ChangeUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="userPortal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="userPortal.Designer.cs">
       <DependentUpon>userPortal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Adendum.resx">
+      <DependentUpon>Adendum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignUser.resx">
+      <DependentUpon>AssignUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +111,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangeUser.resx">
+      <DependentUpon>ChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="userPortal.resx">
       <DependentUpon>userPortal.cs</DependentUpon>
     </EmbeddedResource>

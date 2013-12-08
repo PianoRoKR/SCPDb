@@ -22,12 +22,38 @@ namespace SCPDb
         private void userPortal_Load(object sender, EventArgs e)
         {
             agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
+            agentClass.Text = "Class " + mDB.getAgentClass();
         }
 
         private void logout_Click(object sender, EventArgs e)
         {
             // need to add logout
             Application.Exit();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
         
