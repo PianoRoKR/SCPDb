@@ -75,6 +75,7 @@
             this.comboUser.Name = "comboUser";
             this.comboUser.Size = new System.Drawing.Size(190, 21);
             this.comboUser.TabIndex = 6;
+            this.comboUser.SelectedIndexChanged += new System.EventHandler(this.comboUser_SelectedIndexChanged);
             // 
             // buttonCancel
             // 
@@ -96,6 +97,7 @@
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // AssignUser
             // 
@@ -113,6 +115,7 @@
             this.Name = "AssignUser";
             this.Text = "AssignUser";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AssignUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,10 +37,19 @@
             this.buttonSCPEdit = new System.Windows.Forms.Button();
             this.buttonSCPView = new System.Windows.Forms.Button();
             this.buttonUserView = new System.Windows.Forms.Button();
-            this.buttonUserEdit = new System.Windows.Forms.Button();
+            this.buttonUserAssign = new System.Windows.Forms.Button();
             this.labelUser = new System.Windows.Forms.Label();
             this.assignSCP_listBox = new System.Windows.Forms.ListBox();
             this.usersManaged_listBox = new System.Windows.Forms.ListBox();
+            this.pbPic = new System.Windows.Forms.PictureBox();
+            this.addUsers_listBox = new System.Windows.Forms.ListBox();
+            this.lblSuper = new System.Windows.Forms.Label();
+            this.buttonUserAdd = new System.Windows.Forms.Button();
+            this.buttonUserEdit = new System.Windows.Forms.Button();
+            this.buttonUserDelete = new System.Windows.Forms.Button();
+            this.lblO5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.SuspendLayout();
             // 
             // agentWelcome_label
@@ -92,13 +101,15 @@
             resources.ApplyResources(this.buttonUserView, "buttonUserView");
             this.buttonUserView.Name = "buttonUserView";
             this.buttonUserView.UseVisualStyleBackColor = true;
+            this.buttonUserView.Click += new System.EventHandler(this.buttonUserView_Click);
             // 
-            // buttonUserEdit
+            // buttonUserAssign
             // 
-            this.buttonUserEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            resources.ApplyResources(this.buttonUserEdit, "buttonUserEdit");
-            this.buttonUserEdit.Name = "buttonUserEdit";
-            this.buttonUserEdit.UseVisualStyleBackColor = true;
+            this.buttonUserAssign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonUserAssign, "buttonUserAssign");
+            this.buttonUserAssign.Name = "buttonUserAssign";
+            this.buttonUserAssign.UseVisualStyleBackColor = true;
+            this.buttonUserAssign.Click += new System.EventHandler(this.buttonUserAssign_Click);
             // 
             // labelUser
             // 
@@ -116,20 +127,82 @@
             // usersManaged_listBox
             // 
             this.usersManaged_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            resources.ApplyResources(this.usersManaged_listBox, "usersManaged_listBox");
             this.usersManaged_listBox.ForeColor = System.Drawing.SystemColors.Info;
             this.usersManaged_listBox.FormattingEnabled = true;
-            resources.ApplyResources(this.usersManaged_listBox, "usersManaged_listBox");
             this.usersManaged_listBox.Name = "usersManaged_listBox";
+            // 
+            // pbPic
+            // 
+            this.pbPic.Image = global::SCPDb.Properties.Resources.logo;
+            resources.ApplyResources(this.pbPic, "pbPic");
+            this.pbPic.Name = "pbPic";
+            this.pbPic.TabStop = false;
+            // 
+            // addUsers_listBox
+            // 
+            this.addUsers_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            resources.ApplyResources(this.addUsers_listBox, "addUsers_listBox");
+            this.addUsers_listBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.addUsers_listBox.FormattingEnabled = true;
+            this.addUsers_listBox.Name = "addUsers_listBox";
+            // 
+            // lblSuper
+            // 
+            resources.ApplyResources(this.lblSuper, "lblSuper");
+            this.lblSuper.Name = "lblSuper";
+            // 
+            // buttonUserAdd
+            // 
+            this.buttonUserAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonUserAdd, "buttonUserAdd");
+            this.buttonUserAdd.Name = "buttonUserAdd";
+            this.buttonUserAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonUserEdit
+            // 
+            this.buttonUserEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonUserEdit, "buttonUserEdit");
+            this.buttonUserEdit.Name = "buttonUserEdit";
+            this.buttonUserEdit.UseVisualStyleBackColor = true;
+            // 
+            // buttonUserDelete
+            // 
+            this.buttonUserDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.buttonUserDelete, "buttonUserDelete");
+            this.buttonUserDelete.Name = "buttonUserDelete";
+            this.buttonUserDelete.UseVisualStyleBackColor = true;
+            // 
+            // lblO5
+            // 
+            resources.ApplyResources(this.lblO5, "lblO5");
+            this.lblO5.Name = "lblO5";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.textBox1.Name = "textBox1";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // userPortal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonUserDelete);
+            this.Controls.Add(this.buttonUserEdit);
+            this.Controls.Add(this.buttonUserAdd);
+            this.Controls.Add(this.addUsers_listBox);
+            this.Controls.Add(this.lblSuper);
+            this.Controls.Add(this.pbPic);
             this.Controls.Add(this.usersManaged_listBox);
             this.Controls.Add(this.assignSCP_listBox);
             this.Controls.Add(this.buttonUserView);
-            this.Controls.Add(this.buttonUserEdit);
+            this.Controls.Add(this.buttonUserAssign);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.buttonSCPView);
             this.Controls.Add(this.buttonSCPEdit);
@@ -138,11 +211,14 @@
             this.Controls.Add(this.agentClass);
             this.Controls.Add(this.logout);
             this.Controls.Add(this.agentWelcome_label);
+            this.Controls.Add(this.lblO5);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "userPortal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.userPortal_FormClosing);
             this.Load += new System.EventHandler(this.userPortal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +234,17 @@
         private System.Windows.Forms.Button buttonSCPEdit;
         private System.Windows.Forms.Button buttonSCPView;
         private System.Windows.Forms.Button buttonUserView;
-        private System.Windows.Forms.Button buttonUserEdit;
+        private System.Windows.Forms.Button buttonUserAssign;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.ListBox usersManaged_listBox;
         private System.Windows.Forms.ListBox assignSCP_listBox;
+        private System.Windows.Forms.PictureBox pbPic;
+        private System.Windows.Forms.ListBox addUsers_listBox;
+        private System.Windows.Forms.Label lblSuper;
+        private System.Windows.Forms.Button buttonUserAdd;
+        private System.Windows.Forms.Button buttonUserEdit;
+        private System.Windows.Forms.Button buttonUserDelete;
+        private System.Windows.Forms.Label lblO5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

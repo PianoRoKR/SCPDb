@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentWelcome_label.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>18</value>
   </data>
   <data name="logout.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -163,7 +163,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="logout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>988, 722</value>
+    <value>1193, 726</value>
   </data>
   <data name="logout.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 30</value>
@@ -184,7 +184,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logout.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>17</value>
   </data>
   <data name="agentClass.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -220,7 +220,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;agentClass.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>16</value>
   </data>
   <data name="labelAss.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -253,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelAss.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>15</value>
   </data>
   <data name="buttonSCPAdd.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 620</value>
@@ -277,7 +277,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPAdd.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>14</value>
   </data>
   <data name="buttonSCPEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -304,7 +304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPEdit.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>13</value>
   </data>
   <data name="buttonSCPView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -331,13 +331,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSCPView.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>12</value>
   </data>
   <data name="buttonUserView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonUserView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>790, 620</value>
+    <value>1147, 620</value>
   </data>
   <data name="buttonUserView.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -358,34 +358,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonUserView.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>9</value>
   </data>
-  <data name="buttonUserEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonUserAssign.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonUserEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 620</value>
+  <data name="buttonUserAssign.Location" type="System.Drawing.Point, System.Drawing">
+    <value>893, 620</value>
   </data>
-  <data name="buttonUserEdit.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="buttonUserAssign.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
   </data>
-  <data name="buttonUserEdit.TabIndex" type="System.Int32, mscorlib">
+  <data name="buttonUserAssign.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="buttonUserEdit.Text" xml:space="preserve">
-    <value>Edit</value>
+  <data name="buttonUserAssign.Text" xml:space="preserve">
+    <value>Assign</value>
   </data>
-  <data name="&gt;&gt;buttonUserEdit.Name" xml:space="preserve">
-    <value>buttonUserEdit</value>
+  <data name="&gt;&gt;buttonUserAssign.Name" xml:space="preserve">
+    <value>buttonUserAssign</value>
   </data>
-  <data name="&gt;&gt;buttonUserEdit.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonUserAssign.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonUserEdit.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonUserAssign.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;buttonUserEdit.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;buttonUserAssign.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="labelUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -397,7 +397,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 200</value>
+    <value>886, 200</value>
   </data>
   <data name="labelUser.Size" type="System.Drawing.Size, System.Drawing">
     <value>296, 42</value>
@@ -418,19 +418,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelUser.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>11</value>
   </data>
   <data name="assignSCP_listBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 18pt</value>
+    <value>Consolas, 14.25pt</value>
   </data>
   <data name="assignSCP_listBox.ItemHeight" type="System.Int32, mscorlib">
-    <value>29</value>
+    <value>22</value>
   </data>
   <data name="assignSCP_listBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 245</value>
+    <value>31, 243</value>
   </data>
   <data name="assignSCP_listBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 352</value>
+    <value>375, 334</value>
   </data>
   <data name="assignSCP_listBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -445,13 +445,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;assignSCP_listBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>8</value>
+  </data>
+  <data name="usersManaged_listBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 14.25pt</value>
+  </data>
+  <data name="usersManaged_listBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="usersManaged_listBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 245</value>
+    <value>893, 243</value>
   </data>
   <data name="usersManaged_listBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 355</value>
+    <value>375, 334</value>
   </data>
   <data name="usersManaged_listBox.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -466,6 +472,245 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;usersManaged_listBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pbPic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>872, 17</value>
+  </data>
+  <data name="pbPic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>396, 150</value>
+  </data>
+  <data name="pbPic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbPic.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;pbPic.Name" xml:space="preserve">
+    <value>pbPic</value>
+  </data>
+  <data name="&gt;&gt;pbPic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbPic.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbPic.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="addUsers_listBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 14.25pt</value>
+  </data>
+  <data name="addUsers_listBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="addUsers_listBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>456, 243</value>
+  </data>
+  <data name="addUsers_listBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 334</value>
+  </data>
+  <data name="addUsers_listBox.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="addUsers_listBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;addUsers_listBox.Name" xml:space="preserve">
+    <value>addUsers_listBox</value>
+  </data>
+  <data name="&gt;&gt;addUsers_listBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addUsers_listBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;addUsers_listBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblSuper.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSuper.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="lblSuper.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblSuper.Location" type="System.Drawing.Point, System.Drawing">
+    <value>449, 200</value>
+  </data>
+  <data name="lblSuper.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 42</value>
+  </data>
+  <data name="lblSuper.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lblSuper.Text" xml:space="preserve">
+    <value>User Modification</value>
+  </data>
+  <data name="lblSuper.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblSuper.Name" xml:space="preserve">
+    <value>lblSuper</value>
+  </data>
+  <data name="&gt;&gt;lblSuper.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSuper.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSuper.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonUserAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUserAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>456, 620</value>
+  </data>
+  <data name="buttonUserAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonUserAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="buttonUserAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="buttonUserAdd.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;buttonUserAdd.Name" xml:space="preserve">
+    <value>buttonUserAdd</value>
+  </data>
+  <data name="&gt;&gt;buttonUserAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUserAdd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUserAdd.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonUserEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUserEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>583, 620</value>
+  </data>
+  <data name="buttonUserEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonUserEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="buttonUserEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="buttonUserEdit.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Name" xml:space="preserve">
+    <value>buttonUserEdit</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUserEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonUserDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUserDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>710, 620</value>
+  </data>
+  <data name="buttonUserDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 52</value>
+  </data>
+  <data name="buttonUserDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="buttonUserDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="buttonUserDelete.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;buttonUserDelete.Name" xml:space="preserve">
+    <value>buttonUserDelete</value>
+  </data>
+  <data name="&gt;&gt;buttonUserDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUserDelete.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUserDelete.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblO5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Candara, 21.75pt, style=Bold, Italic</value>
+  </data>
+  <data name="lblO5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>436, 184</value>
+  </data>
+  <data name="lblO5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 518</value>
+  </data>
+  <data name="lblO5.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="lblO5.Text" xml:space="preserve">
+    <value>O5 ACCESS NECESSARY
+UNPRIVELEGED USER DETECTED
+ACCESS DENIED</value>
+  </data>
+  <data name="lblO5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lblO5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblO5.Name" xml:space="preserve">
+    <value>lblO5</value>
+  </data>
+  <data name="&gt;&gt;lblO5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblO5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblO5.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="textBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 743</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 13</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -475,7 +720,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1075, 764</value>
+    <value>1280, 768</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>userPortal</value>

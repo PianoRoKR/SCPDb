@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using SCPDb.Classes;
 
 namespace SCPDb
 {
@@ -31,7 +32,7 @@ namespace SCPDb
             }
             if (mDBConnect.ExecuteLogin(lUID, lPassword) == true)
             {
-                userPortal portal = new userPortal(mDBConnect);
+                userPortal portal = new userPortal(mDBConnect, this);
                 portal.Show();
                 this.Hide();
             }
