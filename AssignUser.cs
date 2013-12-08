@@ -43,7 +43,7 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            int item = (int)comboItem.SelectedItem;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
