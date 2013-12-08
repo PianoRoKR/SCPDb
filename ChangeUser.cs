@@ -24,7 +24,10 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            bool updated = mDB.updateUserClass(mEditedUser, (ClassType)comboBox2.SelectedIndex);
+
+            if (updated) { this.Close(); }
+            else MessageBox.Show("Update failed!");
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -39,7 +42,15 @@ namespace SCPDb
             comboBox2.Items.Clear();
             for (int i = 1; i < (int)mDB.getAgentClass(); i++)
             {
-                comboBox2.Items.Add((ClassType)i);
+                if (i != (int)mEditedUser.Class)
+                {
+                    comboBox2.Items.Add((ClassType)i);
+                }
+            }
+            int agentID = (int)mDB.getAgentClass();
+            if (agentID == 5)
+            {
+                comboBox2.Items.Add((ClassType)5);
             }
         }
     }
