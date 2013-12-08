@@ -275,7 +275,7 @@ namespace SCPDb.Classes
             MySqlDataReader lReader = lCommand.ExecuteReader();
             while (lReader.Read())
             {
-                lSCPList.Add(lReader["scpNum"].ToString());
+                lSCPList.Add(Convert.ToInt32(lReader["scpNum"]));
             }
             lReader.Close();
             return lSCPList;
