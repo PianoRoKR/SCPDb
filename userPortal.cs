@@ -171,12 +171,25 @@ namespace SCPDb
 
         private void buttonSCPView_Click(object sender, EventArgs e)
         {
-            if (viewSCP_listBox.SelectedItem == null)
-                MessageBox.Show("Please Select an SCP item to View.");
+            if (tabControl1.SelectedIndex == 0)
+            {
+                if (assignSCP_listBox.SelectedItem == null)
+                    MessageBox.Show("Please Select an SCP item to View.");
+                else
+                {
+                    View view = new View(mDB, (int)assignSCP_listBox.SelectedItem);
+                    view.ShowDialog();
+                }
+            }
             else
             {
-                View view = new View(mDB, (int)assignSCP_listBox.SelectedItem);
-                view.ShowDialog();
+                if (viewSCP_listBox.SelectedItem == null)
+                    MessageBox.Show("Please Select an SCP item to View.");
+                else
+                {
+                    View view = new View(mDB, (int)viewSCP_listBox.SelectedItem);
+                    view.ShowDialog();
+                }
             }
         }
 
