@@ -319,7 +319,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSCPView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 619</value>
+    <value>287, 620</value>
   </data>
   <data name="buttonSCPView.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>
@@ -782,14 +782,17 @@ ACCESS DENIED</value>
   <data name="&gt;&gt;assignSCP_listBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="tabPage1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 25</value>
   </data>
   <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 306</value>
+    <value>376, 303</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -808,6 +811,9 @@ ACCESS DENIED</value>
   </data>
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabPage2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -835,6 +841,9 @@ ACCESS DENIED</value>
   </data>
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 245</value>

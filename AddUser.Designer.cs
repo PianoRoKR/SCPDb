@@ -128,7 +128,7 @@
             "L1",
             "L2",
             "L3",
-            "O4",
+            "L4",
             "O5"});
             this.dropClass.Location = new System.Drawing.Point(133, 157);
             this.dropClass.Name = "dropClass";

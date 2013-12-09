@@ -157,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(719, 865);
+            this.ClientSize = new System.Drawing.Size(719, 663);
             this.Controls.Add(this.itemSCPTextBox);
             this.Controls.Add(this.lblSCP);
             this.Controls.Add(this.buttonCancel);

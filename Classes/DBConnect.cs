@@ -593,6 +593,32 @@ namespace SCPDb.Classes
             return retval.ToString();
         }
 
+        public bool updateItem(int scpNum, int cType, string SCPcontent, string descript)
+        {
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            string lQuery = "UPDATE SCP SET content = @SCP WHERE scpProcID = @scpNum;UPDATE Item SET class = @cType , creatoruserID = @userID;UPDATE Description SET content = @descript;";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@scpNum", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@SCP", MySqlDbType.Text);
+            lCmd.Parameters.Add("@class", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@userID", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@descript", MySqlDbType.Text);
+            lCmd.Parameters["@scpNum"].Value = scpNum;
+            lCmd.Parameters["@SCP"].Value = SCPcontent;
+            lCmd.Parameters["@class"].Value = cType;
+            lCmd.Parameters["@userID"].Value = getAgentID();
+            lCmd.Parameters["@descript"].Value = descript;
+
+            if (lCmd.ExecuteNonQuery() != 1)
+            {
+                lTrans.Rollback();
+                return false;
+            }
+            else
+                lTrans.Commit();
+            return true;
+        }
 
         public bool deleteAssignment(User aUser, int scpNum)        {
             if (aUser.Class > this.getAgentClass())
@@ -615,6 +641,7 @@ namespace SCPDb.Classes
                 lTrans.Commit();
             return true;
         }
+
         //Count statement
         public int Count()
         {
