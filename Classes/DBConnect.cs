@@ -224,6 +224,43 @@ namespace SCPDb.Classes
             lDataReader.Close();
         }
 
+
+        public List<int> getAssignedSCPs(User aUser)
+        {
+            List<int> lSCPList = new List<int>();
+            string lQuery = "SELECT scpNum FROM Assigned WHERE userID = @uid ORDER BY scpNum ASC";
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@uid", aUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
+            while (lReader.Read())
+            {
+                lSCPList.Add(Convert.ToInt32(lReader["scpNum"]));
+            }
+            lReader.Close();
+            return lSCPList;
+        }
+
+        // Gets list of scps overseeing user can unassign from another user
+        public List<int> getUnassignableSCPs(User aUser)
+        {
+            List<int> lSCPList = new List<int>();
+            string lQuery = "SELECT a.scpNum FROM Assigned a, (SELECT a1.scpNum FROM Assigned a1 WHERE userID = @admin) as u WHERE a.userID = @uid AND a.scpNum IN (u.scpNum) ORDER BY a.scpNum ASC";
+            MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
+            lCommand.Parameters.AddWithValue("@uid", aUser.UserID);
+            lCommand.Parameters.AddWithValue("@admin", activeUser.UserID);
+            lCommand.Prepare();
+            MySqlDataReader lReader = lCommand.ExecuteReader();
+            while (lReader.Read())
+            {
+                lSCPList.Add(Convert.ToInt32(lReader["scpNum"]));
+            }
+            lReader.Close();
+            return lSCPList;
+        }
+
+
+
         public List<int> getSCPDb()
         {
             List<int> lSCPList = new List<int>();
@@ -394,10 +431,51 @@ namespace SCPDb.Classes
             if (nextUserID == -1)
                 throw new Exception("Lookup failed!");
             return ++nextUserID;
+        }
+        public bool insertNewAssignment(User aUser, int scpNum)
+        {
+            if (aUser.Class > this.getAgentClass())
+                return false;
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            string lQuery = "INSERT INTO Assigned VALUES (@user , @SCP)";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@user", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@SCP", MySqlDbType.Int16);
+            lCmd.Parameters["@user"].Value = aUser.UserID;
+            lCmd.Parameters["@SCP"].Value = scpNum;
             
-
+            if (lCmd.ExecuteNonQuery() != 1)
+            {
+                lTrans.Rollback();
+                return false;
+            }
+            else
+                lTrans.Commit();
+            return true;
         }
 
+        public bool deleteAssignment(User aUser, int scpNum)        {
+            if (aUser.Class > this.getAgentClass())
+                return false;
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            string lQuery = "DELETE FROM Assigned WHERE userID = @user AND scpNum = @SCP";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@user", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@SCP", MySqlDbType.Int16);
+            lCmd.Parameters["@user"].Value = aUser.UserID;
+            lCmd.Parameters["@SCP"].Value = scpNum;
+
+            if (lCmd.ExecuteNonQuery() != 1)
+            {
+                lTrans.Rollback();
+                return false;
+            }
+            else
+                lTrans.Commit();
+            return true;
+        }
         //Count statement
         public int Count()
         {

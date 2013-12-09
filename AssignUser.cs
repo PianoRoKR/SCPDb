@@ -16,6 +16,7 @@ namespace SCPDb
         DBConnect mDB;
         int mDefaultUID = 0;
         List<User> mManagedUsers;
+
         public AssignUser(DBConnect aDB, int aUserID, List<User> aManagedUsers)
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace SCPDb
             List<int> lList;
 
             // make new list of user assigned to and remove them from list
-            if ((int)mDB.getAgentClass() == 5) { lList = mDB.getAssignableSCPsO5(((User)comboUser.SelectedItem).UserID); } 
+            if ((int)mDB.getAgentClass() == 5) { lList = mDB.getAssignableSCPsO5( ((User)comboUser.SelectedItem).UserID); } 
             else { lList = mDB.getAssignableSCP(((User)comboUser.SelectedItem).UserID); }
             
             foreach (int lSCP in lList)
@@ -49,9 +50,13 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            int item = (int)comboItem.SelectedItem;
-            ((userPortal)this.Owner).Update();
-            this.Close();
+            bool inserted = mDB.insertNewAssignment((User)comboUser.SelectedItem, Convert.ToInt32(comboItem.SelectedItem));
+            if (inserted)
+            { 
+                ((userPortal)this.Owner).Update();
+                this.Close(); 
+            }
+            else MessageBox.Show("ERROR: item not assigned");
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

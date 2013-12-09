@@ -184,8 +184,8 @@ namespace SCPDb
         {
             if (usersManaged_listBox.SelectedItem == null)
                 usersManaged_listBox.SelectedIndex = 0;
-            RemoveUserAss michaelUserIsAnAss = new RemoveUserAss();
-            michaelUserIsAnAss.ShowDialog();
+            RemoveUserAss lForm = new RemoveUserAss(mDB, ((User)usersManaged_listBox.SelectedItem).UserID, mUserList);
+            lForm.ShowDialog();
         }
 
 

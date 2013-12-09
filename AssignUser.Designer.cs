@@ -98,7 +98,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(208, 52);
             this.buttonSave.TabIndex = 10;
-            this.buttonSave.Text = "Save";
+            this.buttonSave.Text = "Assign";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -117,7 +117,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AssignUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Assign User";
+            this.Text = "Assign SCP";
             this.Load += new System.EventHandler(this.AssignUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

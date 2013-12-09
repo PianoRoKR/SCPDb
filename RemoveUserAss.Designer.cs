@@ -46,6 +46,7 @@
             this.buttonCancel.TabIndex = 17;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
@@ -54,8 +55,9 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(208, 52);
             this.buttonSave.TabIndex = 16;
-            this.buttonSave.Text = "Save";
+            this.buttonSave.Text = "Remove";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelUser
             // 
@@ -76,6 +78,7 @@
             this.comboUser.Name = "comboUser";
             this.comboUser.Size = new System.Drawing.Size(190, 21);
             this.comboUser.TabIndex = 14;
+            this.comboUser.SelectedIndexChanged += new System.EventHandler(this.comboUser_SelectedIndexChanged);
             // 
             // labelItem
             // 
@@ -114,7 +117,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RemoveUserAss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Remove User Assignment";
+            this.Text = "Remove Assignment";
+            this.Load += new System.EventHandler(this.RemoveUserAss_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
