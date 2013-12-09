@@ -50,6 +50,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.pbPic = new System.Windows.Forms.PictureBox();
+            this.buttonChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,11 +203,20 @@
             this.pbPic.Name = "pbPic";
             this.pbPic.TabStop = false;
             // 
+            // buttonChangePassword
+            // 
+            resources.ApplyResources(this.buttonChangePassword, "buttonChangePassword");
+            this.buttonChangePassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonChangePassword.Name = "buttonChangePassword";
+            this.buttonChangePassword.UseVisualStyleBackColor = true;
+            this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
+            // 
             // userPortal
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.Controls.Add(this.buttonChangePassword);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonUserDelete);
@@ -263,5 +273,6 @@
         private System.Windows.Forms.Label lblO5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonChangePassword;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SCPDb.Classes;
+using Microsoft.VisualBasic;
 
 namespace SCPDb
 {
@@ -185,6 +186,21 @@ namespace SCPDb
             if (usersManaged_listBox.SelectedItem == null)
                 usersManaged_listBox.SelectedIndex = 0;
             RemoveUserAss lForm = new RemoveUserAss(mDB, ((User)usersManaged_listBox.SelectedItem).UserID, mUserList);
+            lForm.ShowDialog();
+        }
+
+        private void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+            int lUID = mDB.SelectUID(mDB.getSessionID());
+            if(lUID != mDB.getAgentID())
+            {
+                MessageBox.Show("Invalid session! Please login.");
+                mParent.Show();
+                this.Close();
+                return;
+            }
+            AddUser lForm = new AddUser(mDB, mDB.activeAgent, true);
+            lForm.Owner = this;
             lForm.ShowDialog();
         }
 

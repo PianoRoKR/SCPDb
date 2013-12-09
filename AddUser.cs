@@ -24,14 +24,22 @@ namespace SCPDb
                 mUser = null;
             else
                 mUser = aUser;
-            this.Text = mEdit ? "Edit User" : "Add User";
             InitializeComponent();
+            this.Text = (mEdit ? "Edit User" : "Add User");
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (mEdit)
             {
+                mUser = new User((Int32.Parse(itemSCPTextBox.Text)), (int)dropClass.SelectedIndex + 1, textName.Text, textPassword.Text);
+                if (!mDB.editUser(mUser))
+                    MessageBox.Show("Failed to update user!");
+                else
+                {
+                    ((userPortal)this.Owner).UpdateData();
+                    this.Close();
+                }
             }
             else
             {
@@ -66,6 +74,11 @@ namespace SCPDb
                 itemSCPTextBox.Text = mDB.getNextUserID().ToString();
                 dropClass.SelectedIndex = 0;
                 itemSCPTextBox.ReadOnly = true;
+            }
+            if (mDB.getAgentClass() != ClassType.O5)
+            {
+                textName.ReadOnly = true;
+                dropClass.Enabled = false;
             }
         }
     }

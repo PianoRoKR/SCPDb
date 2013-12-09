@@ -132,7 +132,7 @@ namespace SCPDb.Classes
 
         public int SelectUID(string aSession)
         {
-            string lQuery = "SELECT uid FROM Users WHERE sessionid = @session";
+            string lQuery = "SELECT userID FROM Users WHERE sessionid = @session";
             int lUID = -1;
             MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
             lSessionLookup.Parameters.Add("@session", MySqlDbType.String);
@@ -141,7 +141,7 @@ namespace SCPDb.Classes
             MySqlDataReader lDataReader = lSessionLookup.ExecuteReader();
             while (lDataReader.Read())
             {
-                lUID = Convert.ToInt32(lDataReader["uid"]);
+                lUID = Convert.ToInt32(lDataReader["userID"]);
             }
             lDataReader.Close();
             return lUID;
@@ -151,7 +151,8 @@ namespace SCPDb.Classes
         {
             int lValidUID = this.SelectUID(aUID, aPassword);
             string lQuery = "UPDATE Users SET sessionid=@session WHERE userid=@uid";
-            string lSessionID = DateTime.Now.ToFileTime().ToString();
+            TimeSpan span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+            string lSessionID = span.TotalMilliseconds.ToString();
             if (lValidUID != aUID)
                 return false;
             else
@@ -169,6 +170,14 @@ namespace SCPDb.Classes
                     return true;
                 }
                 return false;
+            }
+        }
+
+        public User activeAgent
+        {
+            get
+            {
+                return this.activeUser;
             }
         }
 
@@ -432,6 +441,46 @@ namespace SCPDb.Classes
                 throw new Exception("Lookup failed!");
             return ++nextUserID;
         }
+
+        public bool editUser(User aUser)
+        {
+            bool retval = true;
+            string lQuery;
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            try
+            {
+                if(aUser.Password == "")
+                    lQuery = "UPDATE Users SET name=@name, class=@class WHERE userID = @uid";
+                else
+                    lQuery = "UPDATE Users SET name=@name, passwd=@password, class=@class WHERE userID = @uid";
+                MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+                lCmd.Transaction = lTrans;
+                lCmd.Parameters.Add("@class", MySqlDbType.Int16);
+                lCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                lCmd.Parameters.Add("@name", MySqlDbType.String);
+                if(aUser.Password != "")
+                    lCmd.Parameters.Add("@password", MySqlDbType.String);
+                lCmd.Parameters["@uid"].Value = aUser.UserID;
+                lCmd.Parameters["@class"].Value = (int)aUser.Class;
+                lCmd.Parameters["@name"].Value = aUser.Name;
+                if (aUser.Password != "")
+                    lCmd.Parameters["@password"].Value = Hash(aUser.Password);
+                if (lCmd.ExecuteNonQuery() != 1)
+                {
+                    lTrans.Rollback();
+                    return false;
+                }
+                else
+                    lTrans.Commit();
+            }
+            catch (Exception ex)
+            {
+                lTrans.Rollback();
+                retval = false;
+            }
+            return retval;
+        }
+
         public bool insertNewAssignment(User aUser, int scpNum)
         {
             if (aUser.Class > this.getAgentClass())
