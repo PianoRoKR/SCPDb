@@ -15,6 +15,7 @@ namespace SCPDb
         DBConnect mDB;
         string[] mSCP;
         string mInterview;
+        string mAddendum;
 
         public View(DBConnect aDB, int aSCP)
         {
@@ -22,6 +23,7 @@ namespace SCPDb
             mDB = aDB;
             mSCP = mDB.getSCP(aSCP);
             mInterview = mDB.getInterviewText(aSCP);
+            mAddendum = mDB.getAddendumText(aSCP);
         }
 
         private void View_Load(object sender, EventArgs e)
@@ -31,6 +33,7 @@ namespace SCPDb
             itemSCPTextBox.Text = mSCP[2];
             richDescription.Text = mSCP[3];
             richInterview.Text = mInterview;
+            richAdAss.Text = mAddendum;
         }
     }
 }

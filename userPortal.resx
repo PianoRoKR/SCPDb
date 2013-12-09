@@ -319,7 +319,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSCPView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 620</value>
+    <value>287, 619</value>
   </data>
   <data name="buttonSCPView.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 52</value>

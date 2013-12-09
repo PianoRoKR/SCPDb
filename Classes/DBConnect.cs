@@ -574,6 +574,26 @@ namespace SCPDb.Classes
             return retval.ToString();
         }
 
+        public string getAddendumText(int scpNum)
+        {
+            string lQuery = "SELECT DISTINCT a.refNum, a.content FROM Addendum a WHERE a.scpNum = @scp ORDER BY a.refNum;";
+            StringBuilder retval = new StringBuilder();
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Parameters.AddWithValue("@scp", scpNum);
+            lCmd.Prepare();
+            MySqlDataReader lReader = lCmd.ExecuteReader();
+            while (lReader.Read())
+            {
+                retval.Append("\n\n-------------------------------------\n\n");
+                retval.Append("Addenum Num: " + lReader[0]);
+                retval.Append("\n");
+                retval.Append(lReader[1].ToString());
+            }
+            lReader.Close();
+            return retval.ToString();
+        }
+
+
         public bool deleteAssignment(User aUser, int scpNum)        {
             if (aUser.Class > this.getAgentClass())
                 return false;
