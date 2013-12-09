@@ -32,12 +32,12 @@
             this.itemClass = new System.Windows.Forms.Label();
             this.itemDescrip = new System.Windows.Forms.Label();
             this.itemSCPNumTextBox = new System.Windows.Forms.TextBox();
-            this.itemClassTextBox = new System.Windows.Forms.TextBox();
             this.itemDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.itemSCPTextBox = new System.Windows.Forms.RichTextBox();
             this.lblSCP = new System.Windows.Forms.Label();
+            this.comboClass = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // scpNumber
@@ -86,15 +86,6 @@
             this.itemSCPNumTextBox.Name = "itemSCPNumTextBox";
             this.itemSCPNumTextBox.Size = new System.Drawing.Size(402, 20);
             this.itemSCPNumTextBox.TabIndex = 3;
-            // 
-            // itemClassTextBox
-            // 
-            this.itemClassTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemClassTextBox.Location = new System.Drawing.Point(192, 50);
-            this.itemClassTextBox.Name = "itemClassTextBox";
-            this.itemClassTextBox.Size = new System.Drawing.Size(402, 20);
-            this.itemClassTextBox.TabIndex = 4;
             // 
             // itemDescriptionTextBox
             // 
@@ -152,18 +143,30 @@
             this.lblSCP.TabIndex = 8;
             this.lblSCP.Text = "Item SCP:";
             // 
+            // comboClass
+            // 
+            this.comboClass.FormattingEnabled = true;
+            this.comboClass.Items.AddRange(new object[] {
+            "Safe",
+            "Euclid",
+            "Keter"});
+            this.comboClass.Location = new System.Drawing.Point(192, 45);
+            this.comboClass.Name = "comboClass";
+            this.comboClass.Size = new System.Drawing.Size(402, 21);
+            this.comboClass.TabIndex = 10;
+            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(719, 663);
+            this.Controls.Add(this.comboClass);
             this.Controls.Add(this.itemSCPTextBox);
             this.Controls.Add(this.lblSCP);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.itemDescriptionTextBox);
-            this.Controls.Add(this.itemClassTextBox);
             this.Controls.Add(this.itemSCPNumTextBox);
             this.Controls.Add(this.itemDescrip);
             this.Controls.Add(this.itemClass);
@@ -185,11 +188,11 @@
         private System.Windows.Forms.Label itemClass;
         private System.Windows.Forms.Label itemDescrip;
         private System.Windows.Forms.TextBox itemSCPNumTextBox;
-        private System.Windows.Forms.TextBox itemClassTextBox;
         private System.Windows.Forms.RichTextBox itemDescriptionTextBox;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.RichTextBox itemSCPTextBox;
         private System.Windows.Forms.Label lblSCP;
+        private System.Windows.Forms.ComboBox comboClass;
     }
 }

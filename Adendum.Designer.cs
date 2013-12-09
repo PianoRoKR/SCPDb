@@ -43,9 +43,9 @@
             this.labelItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelItem.Location = new System.Drawing.Point(46, 9);
             this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(102, 25);
+            this.labelItem.Size = new System.Drawing.Size(71, 25);
             this.labelItem.TabIndex = 6;
-            this.labelItem.Text = "Item SCP:";
+            this.labelItem.Text = "Item #:";
             // 
             // buttonCancel
             // 
@@ -68,6 +68,7 @@
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // richTextBox1
             // 
@@ -93,6 +94,7 @@
             this.Name = "Adendum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Adendum";
+            this.Load += new System.EventHandler(this.Adendum_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

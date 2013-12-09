@@ -10,7 +10,7 @@ using SCPDb.Classes;
 
 namespace SCPDb
 {
-    enum ClassName
+    public enum ClassName
     {
             Safe = 1,
             Euclid = 2,
@@ -42,7 +42,9 @@ namespace SCPDb
         private void Item_Load(object sender, EventArgs e)
         {
             itemSCPNumTextBox.Text = mSCP[0];
-            itemClassTextBox.Text = ((ClassName)Convert.ToInt16(mSCP[1])).ToString();
+            itemSCPNumTextBox.ReadOnly = true;
+            itemSCPNumTextBox.Enabled = false;
+            comboClass.SelectedIndex = Convert.ToInt16(mSCP[1]) - 1;
             itemSCPTextBox.Text = mSCP[2];
             itemDescriptionTextBox.Text = mSCP[3];
         }
@@ -54,7 +56,10 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            if (mDB.updateItem(Convert.ToInt32(mSCP[0]), comboClass.SelectedIndex + 1, itemSCPTextBox.Text, itemDescriptionTextBox.Text))
+                this.Close();
+            else
+                MessageBox.Show("Item update failed!");
         }
 
         private void itemDescrip_Click(object sender, EventArgs e)

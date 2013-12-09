@@ -342,6 +342,9 @@
   <data name="&gt;&gt;buttonSCPView.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <data name="buttonUserClassChange.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="buttonUserClassChange.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -369,6 +372,9 @@
   <data name="&gt;&gt;buttonUserClassChange.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="buttonUserAssign.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="buttonUserAssign.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -395,6 +401,9 @@
   </data>
   <data name="&gt;&gt;buttonUserAssign.ZOrder" xml:space="preserve">
     <value>12</value>
+  </data>
+  <data name="labelUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="labelUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -456,6 +465,9 @@
   <data name="&gt;&gt;viewSCP_listBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="usersManaged_listBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="usersManaged_listBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 14.25pt</value>
   </data>
@@ -482,6 +494,9 @@
   </data>
   <data name="&gt;&gt;usersManaged_listBox.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="addUsers_listBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="addUsers_listBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 14.25pt</value>
@@ -512,6 +527,9 @@
   </data>
   <data name="&gt;&gt;addUsers_listBox.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="lblSuper.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="lblSuper.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -549,6 +567,9 @@
   <data name="&gt;&gt;lblSuper.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="buttonUserAdd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="buttonUserAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -578,6 +599,9 @@
   </data>
   <data name="&gt;&gt;buttonUserAdd.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="buttonUserEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="buttonUserEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -609,6 +633,9 @@
   <data name="&gt;&gt;buttonUserEdit.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="buttonUserDelete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="buttonUserDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -638,6 +665,9 @@
   </data>
   <data name="&gt;&gt;buttonUserDelete.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="lblO5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="lblO5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Candara, 21.75pt, style=Bold, Italic</value>
@@ -701,6 +731,9 @@ ACCESS DENIED</value>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="buttonRemove.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="buttonRemove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -727,6 +760,9 @@ ACCESS DENIED</value>
   </data>
   <data name="&gt;&gt;buttonRemove.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="pbPic.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="pbPic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -816,13 +852,13 @@ ACCESS DENIED</value>
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 25</value>
   </data>
   <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 306</value>
+    <value>376, 303</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

@@ -105,21 +105,71 @@ namespace SCPDb.Classes
 
         public int SelectUID(int aUID, string aPassword)
         {
-            string lQuery = "SELECT userID FROM Users WHERE userID = @uid AND passwd = @pass";
+            MySqlDataReader lDataReader = null;
+            MySqlCommand lUserIDLoginCmd;
             int lUID = -1;
-            MySqlCommand lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
-            lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
-            lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
-            lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
-            lUserIDLoginCmd.Parameters["@pass"].Value = Hash(aPassword);
-            lUserIDLoginCmd.Prepare();
-            MySqlDataReader lDataReader = lUserIDLoginCmd.ExecuteReader();
-            while (lDataReader.Read())
+            try
             {
-                lUID = Convert.ToInt32(lDataReader["userID"]);
+                string lQuery = "SELECT userID FROM Users WHERE userID = @uid AND passwd = @pass";
+                lUserIDLoginCmd = new MySqlCommand(lQuery, mConnection);
+                lUserIDLoginCmd.Parameters.Add("@uid", MySqlDbType.Int16);
+                lUserIDLoginCmd.Parameters.Add("@pass", MySqlDbType.String);
+                lUserIDLoginCmd.Parameters["@uid"].Value = aUID;
+                lUserIDLoginCmd.Parameters["@pass"].Value = Hash(aPassword);
+                lUserIDLoginCmd.Prepare();
+                lDataReader = lUserIDLoginCmd.ExecuteReader();
+                while (lDataReader.Read())
+                {
+                    lUID = Convert.ToInt32(lDataReader["userID"]);
+                }
+                lDataReader.Close();
             }
-            lDataReader.Close();
+            catch (Exception ex)
+            {
+                if(lDataReader != null)
+                    lDataReader.Close();
+                lUID = -1;
+            }
             return lUID;
+        }
+
+        public string getNextAddendum(int scpNum)
+        {
+            string lQuery = "SELECT DISTINCT a.refNum FROM Addendum a WHERE a.scpNum = @scp ORDER BY a.refNum DESC LIMIT 1;";
+            string retval = "A";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Parameters.AddWithValue("@scp", scpNum);
+            lCmd.Prepare();
+            MySqlDataReader lReader = lCmd.ExecuteReader();
+            while (lReader.Read())
+            {
+                retval = (((retval = ((char)((int)(lReader[0].ToString()[0]) + 1)).ToString())[0]) == ('Z' + 1)) ? "AA" : retval;
+            }
+            lReader.Close();
+            return retval;
+        }
+
+        public bool addAddendum(int scpNum, string refNum, string content)
+        {
+            string lQuery = "INSERT INTO Addendum VALUES (@scp, @refNum, @content)";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            MySqlTransaction lTrans = mConnection.BeginTransaction();
+            lCmd.Transaction = lTrans;
+            lCmd.Parameters.Add("@scp", MySqlDbType.Int16);
+            lCmd.Parameters.Add("@refNum", MySqlDbType.String);
+            lCmd.Parameters.Add("@content", MySqlDbType.Text);
+            lCmd.Parameters["@scp"].Value = scpNum;
+            lCmd.Parameters["@refNum"].Value = refNum;
+            lCmd.Parameters["@content"].Value = content;
+            lCmd.Prepare();
+            if (lCmd.ExecuteNonQuery() != 1)
+            {
+                lTrans.Rollback();
+                return false;
+            }
+            else
+                lTrans.Commit();
+            return true;
         }
 
         public string Hash(string aPasswd)
@@ -596,27 +646,53 @@ namespace SCPDb.Classes
         public bool updateItem(int scpNum, int cType, string SCPcontent, string descript)
         {
             MySqlTransaction lTrans = mConnection.BeginTransaction();
-            string lQuery = "UPDATE SCP SET content = @SCP WHERE scpProcID = @scpNum;UPDATE Item SET class = @cType , creatoruserID = @userID;UPDATE Description SET content = @descript;";
+            string lQuery = "UPDATE SCP SET content = @SCP WHERE scpProcID = @scpNum;";
+            string lQuery2 = "UPDATE Description SET content = @descript WHERE descriptID = @scpNum;";
+            string lQuery3 = "UPDATE Item SET class=@cType, creatoruserID=@userID WHERE scpNum = @scpNum;";
             MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            MySqlCommand lCmd2 = new MySqlCommand(lQuery2, mConnection);
+            MySqlCommand lCmd3 = new MySqlCommand(lQuery3, mConnection);
             lCmd.Transaction = lTrans;
             lCmd.Parameters.Add("@scpNum", MySqlDbType.Int16);
             lCmd.Parameters.Add("@SCP", MySqlDbType.Text);
-            lCmd.Parameters.Add("@class", MySqlDbType.Int16);
-            lCmd.Parameters.Add("@userID", MySqlDbType.Int16);
-            lCmd.Parameters.Add("@descript", MySqlDbType.Text);
+            lCmd2.Parameters.Add("@descript", MySqlDbType.Text);
+            lCmd2.Parameters.Add("@scpNum", MySqlDbType.Int16);
+            lCmd3.Parameters.Add("@cType", MySqlDbType.Int16);
+            lCmd3.Parameters.Add("@userID", MySqlDbType.Int16);
+            lCmd3.Parameters.Add("@scpNum", MySqlDbType.Int16);
             lCmd.Parameters["@scpNum"].Value = scpNum;
             lCmd.Parameters["@SCP"].Value = SCPcontent;
-            lCmd.Parameters["@class"].Value = cType;
-            lCmd.Parameters["@userID"].Value = getAgentID();
-            lCmd.Parameters["@descript"].Value = descript;
-
+            lCmd2.Parameters["@descript"].Value = descript;
+            lCmd2.Parameters["@scpNum"].Value = scpNum;
+            lCmd3.Parameters["@scpNum"].Value = scpNum;
+            lCmd3.Parameters["@cType"].Value = cType;
+            lCmd3.Parameters["@userID"].Value = getAgentID();
+            lCmd.Prepare();
+            lCmd2.Prepare();
+            lCmd3.Prepare();
             if (lCmd.ExecuteNonQuery() != 1)
             {
                 lTrans.Rollback();
                 return false;
             }
             else
-                lTrans.Commit();
+            {
+                if (lCmd2.ExecuteNonQuery() != 1)
+                {
+                    lTrans.Rollback();
+                    return false;
+                }
+                else
+                {
+                    if (lCmd3.ExecuteNonQuery() != 1)
+                    {
+                        lTrans.Rollback();
+                        return false;
+                    }
+                    else
+                        lTrans.Commit();
+                }
+            }
             return true;
         }
 

@@ -109,16 +109,16 @@
             // 
             // buttonUserClassChange
             // 
-            this.buttonUserClassChange.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonUserClassChange, "buttonUserClassChange");
+            this.buttonUserClassChange.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonUserClassChange.Name = "buttonUserClassChange";
             this.buttonUserClassChange.UseVisualStyleBackColor = true;
             this.buttonUserClassChange.Click += new System.EventHandler(this.buttonUserChangeClass_Click);
             // 
             // buttonUserAssign
             // 
-            this.buttonUserAssign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonUserAssign, "buttonUserAssign");
+            this.buttonUserAssign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonUserAssign.Name = "buttonUserAssign";
             this.buttonUserAssign.UseVisualStyleBackColor = true;
             this.buttonUserAssign.Click += new System.EventHandler(this.buttonUserAssign_Click);
@@ -138,16 +138,16 @@
             // 
             // usersManaged_listBox
             // 
-            this.usersManaged_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
             resources.ApplyResources(this.usersManaged_listBox, "usersManaged_listBox");
+            this.usersManaged_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
             this.usersManaged_listBox.ForeColor = System.Drawing.SystemColors.Info;
             this.usersManaged_listBox.FormattingEnabled = true;
             this.usersManaged_listBox.Name = "usersManaged_listBox";
             // 
             // addUsers_listBox
             // 
-            this.addUsers_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
             resources.ApplyResources(this.addUsers_listBox, "addUsers_listBox");
+            this.addUsers_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
             this.addUsers_listBox.ForeColor = System.Drawing.SystemColors.Info;
             this.addUsers_listBox.FormattingEnabled = true;
             this.addUsers_listBox.Name = "addUsers_listBox";
@@ -159,24 +159,24 @@
             // 
             // buttonUserAdd
             // 
-            this.buttonUserAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonUserAdd, "buttonUserAdd");
+            this.buttonUserAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonUserAdd.Name = "buttonUserAdd";
             this.buttonUserAdd.UseVisualStyleBackColor = true;
             this.buttonUserAdd.Click += new System.EventHandler(this.buttonUserAdd_Click);
             // 
             // buttonUserEdit
             // 
-            this.buttonUserEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonUserEdit, "buttonUserEdit");
+            this.buttonUserEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonUserEdit.Name = "buttonUserEdit";
             this.buttonUserEdit.UseVisualStyleBackColor = true;
             this.buttonUserEdit.Click += new System.EventHandler(this.buttonUserEdit_Click);
             // 
             // buttonUserDelete
             // 
-            this.buttonUserDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonUserDelete, "buttonUserDelete");
+            this.buttonUserDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonUserDelete.Name = "buttonUserDelete";
             this.buttonUserDelete.UseVisualStyleBackColor = true;
             this.buttonUserDelete.Click += new System.EventHandler(this.buttonUserDelete_Click);
@@ -197,16 +197,16 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.buttonRemove, "buttonRemove");
+            this.buttonRemove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // pbPic
             // 
-            this.pbPic.Image = global::SCPDb.Properties.Resources.logo;
             resources.ApplyResources(this.pbPic, "pbPic");
+            this.pbPic.Image = global::SCPDb.Properties.Resources.logo;
             this.pbPic.Name = "pbPic";
             this.pbPic.TabStop = false;
             // 

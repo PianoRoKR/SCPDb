@@ -151,7 +151,7 @@ namespace SCPDb
                 MessageBox.Show("Please Select an SCP item to add an Adendum.");
             else
             {
-                Adendum ad = new Adendum();
+                Adendum ad = new Adendum(mDB, (int)assignSCP_listBox.SelectedItem);
                 ad.ShowDialog();
             }
 
