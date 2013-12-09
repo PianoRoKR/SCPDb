@@ -74,16 +74,14 @@ namespace SCPDb.Classes
         public override string ToString()
         {
             StringBuilder lStringBuilder = new StringBuilder();
-            lStringBuilder.Append(this.UserID);
-            string lString = lStringBuilder.ToString().PadRight(4);
-            lStringBuilder.Clear();
-            lStringBuilder.Append(lString);
             lStringBuilder.Append(this.Name);
-            lString = lStringBuilder.ToString().PadRight(32);
+            string lString = lStringBuilder.ToString().PadRight(32);
             lStringBuilder.Clear();
             lStringBuilder.Append(lString);
             lStringBuilder.Append(this.mClass.ToString());
             return lStringBuilder.ToString();
         }
+
+        
     }
 }

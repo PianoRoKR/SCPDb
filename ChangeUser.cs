@@ -29,7 +29,8 @@ namespace SCPDb
 
                 if (updated)
                 {
-                    mEditedUser.Class = (ClassType)comboBox2.SelectedItem; 
+                    mEditedUser.Class = (ClassType)comboBox2.SelectedItem;
+                    ((userPortal)this.Owner).UpdateData();
                     this.Close(); 
                 }
                 else MessageBox.Show("Update failed!");

@@ -49,9 +49,9 @@
             this.scpNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.scpNumber.Location = new System.Drawing.Point(12, 56);
             this.scpNumber.Name = "scpNumber";
-            this.scpNumber.Size = new System.Drawing.Size(75, 25);
+            this.scpNumber.Size = new System.Drawing.Size(70, 25);
             this.scpNumber.TabIndex = 1;
-            this.scpNumber.Text = " Name:";
+            this.scpNumber.Text = "Name:";
             // 
             // label1
             // 
@@ -75,9 +75,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 25);
+            this.label2.Size = new System.Drawing.Size(83, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "User Name:";
+            this.label2.Text = "User ID:";
             // 
             // label3
             // 
@@ -178,6 +178,7 @@
             this.Name = "AddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User";
+            this.Load += new System.EventHandler(this.AddUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,17 +15,11 @@ namespace SCPDb
         public DBConnect mDB;
         public frmLogin mParent;
         private List<User> mUserList;
-        public userPortal(DBConnect dbC, frmLogin parent)
-        {
-            InitializeComponent();
-            mDB = dbC;
-            mParent = parent;
-        }
+        private bool mVisible;
 
-        private void userPortal_Load(object sender, EventArgs e)
+        public void UpdateData()
         {
-            
-            agentWelcome_label.Text = "Welcome Agent " + mDB.getAgentName();
+            agentWelcome_label.Text = "Welcome "  + (this.mDB.getAgentClass() != ClassType.O5 ? "Agent " : "Overseer ") + mDB.getAgentName();
             agentClass.Text = "Class " + mDB.getAgentClass().ToString();
             assignSCP_listBox.Items.Clear();
             usersManaged_listBox.Items.Clear();
@@ -39,12 +33,30 @@ namespace SCPDb
             {
                 assignSCP_listBox.Items.Add(lScp);
             }
-            
+
             usersManaged_listBox.Items.Clear();
-            foreach(User lUser in mUserList)
+            foreach (User lUser in mUserList)
             {
                 usersManaged_listBox.Items.Add(lUser);
             }
+            if (this.mDB.getAgentClass() == ClassType.O5 && mVisible)
+            {
+                addUsers_listBox.Items.Clear();
+                addUsers_listBox.Items.AddRange(mDB.getUsers().ToArray());
+            }
+        }
+
+        public userPortal(DBConnect dbC, frmLogin parent)
+        {
+            InitializeComponent();
+            mDB = dbC;
+            mParent = parent;
+            mVisible = false;
+        }
+
+        private void userPortal_Load(object sender, EventArgs e)
+        {
+            UpdateData();
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -60,6 +72,7 @@ namespace SCPDb
                 return;
             User lUser = (User)usersManaged_listBox.SelectedItem;
             ChangeUser lForm = new ChangeUser(mDB, lUser);
+            lForm.Owner = this;
             lForm.ShowDialog();
         }
 
@@ -93,6 +106,7 @@ namespace SCPDb
                 buttonUserDelete.Visible = false;
                 buttonUserEdit.Visible = false;
             }
+            mVisible = true;
         }
 
         private void userPortal_FormClosing(object sender, FormClosingEventArgs e)
@@ -105,6 +119,7 @@ namespace SCPDb
             if(usersManaged_listBox.SelectedItem == null)
                 usersManaged_listBox.SelectedIndex = 0;
             AssignUser lForm = new AssignUser(mDB, ((User)usersManaged_listBox.SelectedItem).UserID, mUserList);
+            lForm.Owner = this;
             lForm.ShowDialog();
         }
 
@@ -145,14 +160,17 @@ namespace SCPDb
 
         private void buttonUserAdd_Click(object sender, EventArgs e)
         {
-            AddUser add = new AddUser();
+            AddUser add = new AddUser(mDB, null, false);
+            add.Owner = this;
             add.ShowDialog();
         }
 
         private void buttonUserEdit_Click(object sender, EventArgs e)
         {
-            //NEED TO CHANGE CONSTRUCTOR TO LOAD USER SELECTED INFO
-            AddUser add = new AddUser();
+            if (addUsers_listBox.SelectedItem == null)
+                return;
+            AddUser add = new AddUser(mDB, (User)addUsers_listBox.SelectedItem, true);
+            add.Owner = this;
             add.ShowDialog();
         }
 

@@ -50,7 +50,7 @@ namespace SCPDb
         private void buttonSave_Click(object sender, EventArgs e)
         {
             int item = (int)comboItem.SelectedItem;
-
+            ((userPortal)this.Owner).Update();
             this.Close();
         }
 
