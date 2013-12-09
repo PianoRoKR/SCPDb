@@ -147,7 +147,7 @@ namespace SCPDb
 
         private void buttonSCPAdd_Click(object sender, EventArgs e)
         {
-            if (viewSCP_listBox.SelectedItem == null)
+            if (assignSCP_listBox.SelectedItem == null)
                 MessageBox.Show("Please Select an SCP item to add an Adendum.");
             else
             {
@@ -160,7 +160,7 @@ namespace SCPDb
 
         private void buttonSCPEdit_Click(object sender, EventArgs e)
         {
-            if (viewSCP_listBox.SelectedItem == null)
+            if (assignSCP_listBox.SelectedItem == null)
                 MessageBox.Show("Please Select an SCP item to Edit.");
             else
             {
