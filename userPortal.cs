@@ -143,7 +143,7 @@ namespace SCPDb
                 MessageBox.Show("Please Select an SCP item to Edit.");
             else
             {
-                Item item = new Item();
+                Item item = new Item(mDB, (int)assignSCP_listBox.SelectedItem);
                 item.ShowDialog();
             }
         }
@@ -154,7 +154,7 @@ namespace SCPDb
                 MessageBox.Show("Please Select an SCP item to View.");
             else
             {
-                View view = new View();
+                View view = new View(mDB, (int)assignSCP_listBox.SelectedItem);
                 view.ShowDialog();
             }
         }

@@ -504,6 +504,76 @@ namespace SCPDb.Classes
             return true;
         }
 
+        public string[] getSCP(int scpNum)
+        {
+            string lQuery = "SELECT i.scpNum, i.class, s.content AS scp, d.content AS descript FROM Item i INNER JOIN SCP s ON i.scpProcID = s.scpProcID INNER JOIN Description d ON i.descriptID = d.descriptID WHERE i.scpNum = @scp LIMIT 1";
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            string[] lSCP = new string[4];
+            lCmd.Parameters.AddWithValue("@scp", scpNum);
+            lCmd.Prepare();
+            MySqlDataReader lReader = lCmd.ExecuteReader();
+            if (!lReader.Read())
+            {
+                lReader.Close();
+                throw new Exception("Unable to find SCP!");
+            }
+            lSCP[0] = lReader["scpNum"].ToString();
+            lSCP[1] = lReader["class"].ToString();
+            lSCP[2] = lReader["scp"].ToString();
+            lSCP[3] = lReader["descript"].ToString();
+            lReader.Close();
+            return lSCP;
+        }
+
+        public string getInterviewText(int scpNum)
+        {
+            string lQuery = "SELECT DISTINCT i.invNum, i.content, u.name FROM Interview i LEFT OUTER JOIN Attended a ON a.invNum = i.invNum INNER JOIN Users u ON a.userID = u.userID WHERE i.scpNum = @scp ORDER BY i.invNum, a.userID;";
+            StringBuilder retval = new StringBuilder();
+            string lInterviewNumOld= "";
+            string lInterviewNumNew = "";
+            string lContent = "";
+            List<string> lInterviewAttended = new List<string>();
+            MySqlCommand lCmd = new MySqlCommand(lQuery, mConnection);
+            lCmd.Parameters.AddWithValue("@scp", scpNum);
+            lCmd.Prepare();
+            MySqlDataReader lReader = lCmd.ExecuteReader();
+            while (lReader.Read())
+            {
+                lInterviewNumNew = lReader[0].ToString();
+                if (lInterviewNumNew != lInterviewNumOld)
+                {
+                    if (lContent != "")
+                        retval.Append("\n\n");
+                    retval.Append(lContent);
+                    if (lContent != "")
+                        retval.Append("\n\n-------------------------------------\n\n");
+                    lContent = lReader[1].ToString();
+                    retval.Append("Interview Num: " + lInterviewNumNew);
+                    retval.Append("\n");
+                    retval.Append("Attendees: ");
+                    retval.Append("\n");
+                    if (lReader[2].ToString() == "")
+                        retval.Append("None");
+                    else
+                        retval.Append(lReader[2].ToString());
+                    retval.Append("\n");
+                    lInterviewNumOld = lInterviewNumNew;
+                }
+                else
+                {
+                    if (lReader[2].ToString() != "")
+                    {
+                        retval.Append(lReader[2].ToString());
+                        retval.Append("\n");
+                    }
+                }
+            }
+            if (lContent != "")
+                retval.Append("\n\n" + lContent);
+            lReader.Close();
+            return retval.ToString();
+        }
+
         public bool deleteAssignment(User aUser, int scpNum)        {
             if (aUser.Class > this.getAgentClass())
                 return false;
