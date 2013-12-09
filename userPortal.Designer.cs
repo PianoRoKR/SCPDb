@@ -39,7 +39,7 @@
             this.buttonUserClassChange = new System.Windows.Forms.Button();
             this.buttonUserAssign = new System.Windows.Forms.Button();
             this.labelUser = new System.Windows.Forms.Label();
-            this.assignSCP_listBox = new System.Windows.Forms.ListBox();
+            this.viewSCP_listBox = new System.Windows.Forms.ListBox();
             this.usersManaged_listBox = new System.Windows.Forms.ListBox();
             this.addUsers_listBox = new System.Windows.Forms.ListBox();
             this.lblSuper = new System.Windows.Forms.Label();
@@ -50,8 +50,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.pbPic = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.assignSCP_listBox = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // agentWelcome_label
@@ -121,13 +128,13 @@
             resources.ApplyResources(this.labelUser, "labelUser");
             this.labelUser.Name = "labelUser";
             // 
-            // assignSCP_listBox
+            // viewSCP_listBox
             // 
-            this.assignSCP_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
-            resources.ApplyResources(this.assignSCP_listBox, "assignSCP_listBox");
-            this.assignSCP_listBox.ForeColor = System.Drawing.SystemColors.Info;
-            this.assignSCP_listBox.FormattingEnabled = true;
-            this.assignSCP_listBox.Name = "assignSCP_listBox";
+            this.viewSCP_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            resources.ApplyResources(this.viewSCP_listBox, "viewSCP_listBox");
+            this.viewSCP_listBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.viewSCP_listBox.FormattingEnabled = true;
+            this.viewSCP_listBox.Name = "viewSCP_listBox";
             // 
             // usersManaged_listBox
             // 
@@ -203,6 +210,37 @@
             this.pbPic.Name = "pbPic";
             this.pbPic.TabStop = false;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            this.tabPage1.Controls.Add(this.assignSCP_listBox);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            // 
+            // assignSCP_listBox
+            // 
+            this.assignSCP_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            resources.ApplyResources(this.assignSCP_listBox, "assignSCP_listBox");
+            this.assignSCP_listBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.assignSCP_listBox.FormattingEnabled = true;
+            this.assignSCP_listBox.Name = "assignSCP_listBox";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(75)))));
+            this.tabPage2.Controls.Add(this.viewSCP_listBox);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            // 
             // buttonChangePassword
             // 
             resources.ApplyResources(this.buttonChangePassword, "buttonChangePassword");
@@ -216,6 +254,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(41)))));
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonChangePassword);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.textBox1);
@@ -226,7 +265,6 @@
             this.Controls.Add(this.lblSuper);
             this.Controls.Add(this.pbPic);
             this.Controls.Add(this.usersManaged_listBox);
-            this.Controls.Add(this.assignSCP_listBox);
             this.Controls.Add(this.buttonUserClassChange);
             this.Controls.Add(this.buttonUserAssign);
             this.Controls.Add(this.labelUser);
@@ -245,6 +283,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.userPortal_FormClosing);
             this.Load += new System.EventHandler(this.userPortal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPic)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +304,7 @@
         private System.Windows.Forms.Button buttonUserAssign;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.ListBox usersManaged_listBox;
-        private System.Windows.Forms.ListBox assignSCP_listBox;
+        private System.Windows.Forms.ListBox viewSCP_listBox;
         private System.Windows.Forms.PictureBox pbPic;
         private System.Windows.Forms.ListBox addUsers_listBox;
         private System.Windows.Forms.Label lblSuper;
@@ -273,6 +314,10 @@
         private System.Windows.Forms.Label lblO5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonChangePassword;
+        private System.Windows.Forms.ListBox assignSCP_listBox;
     }
 }

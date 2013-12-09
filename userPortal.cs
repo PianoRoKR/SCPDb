@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SCPDb.Classes;
+using System.Runtime.InteropServices;
 using Microsoft.VisualBasic;
 
 namespace SCPDb
@@ -22,17 +23,35 @@ namespace SCPDb
         {
             agentWelcome_label.Text = "Welcome "  + (this.mDB.getAgentClass() != ClassType.O5 ? "Agent " : "Overseer ") + mDB.getAgentName();
             agentClass.Text = "Class " + mDB.getAgentClass().ToString();
-            assignSCP_listBox.Items.Clear();
+            viewSCP_listBox.Items.Clear();
             usersManaged_listBox.Items.Clear();
             assignSCP_listBox.Items.Add("Loading...");
+            viewSCP_listBox.Items.Add("Loading...");
             usersManaged_listBox.Items.Add("Loading...");
             mUserList = mDB.getUsersManaged();
 
             List<int> lSCPDb = mDB.getSCPDb();
-            assignSCP_listBox.Items.Clear();
+            viewSCP_listBox.Items.Clear();
             foreach (int lScp in lSCPDb)
             {
-                assignSCP_listBox.Items.Add(lScp);
+                viewSCP_listBox.Items.Add(lScp);
+            }
+
+            List<int> lAssignedSCPDb = mDB.getAssignedSCPs(mDB.activeAgent);
+            assignSCP_listBox.Items.Clear();
+            if ((int)mDB.getAgentClass() == 5)
+            {
+                foreach (int lScp in lSCPDb)
+                {
+                    assignSCP_listBox.Items.Add(lScp);
+                }
+            }
+            else
+            {
+                foreach (int lScp in lAssignedSCPDb)
+                {
+                    assignSCP_listBox.Items.Add(lScp);
+                }
             }
 
             usersManaged_listBox.Items.Clear();
@@ -40,6 +59,7 @@ namespace SCPDb
             {
                 usersManaged_listBox.Items.Add(lUser);
             }
+
             if (this.mDB.getAgentClass() == ClassType.O5 && mVisible)
             {
                 addUsers_listBox.Items.Clear();
@@ -76,6 +96,7 @@ namespace SCPDb
             lForm.Owner = this;
             lForm.ShowDialog();
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -126,7 +147,7 @@ namespace SCPDb
 
         private void buttonSCPAdd_Click(object sender, EventArgs e)
         {
-            if (assignSCP_listBox.SelectedItem == null)
+            if (viewSCP_listBox.SelectedItem == null)
                 MessageBox.Show("Please Select an SCP item to add an Adendum.");
             else
             {
@@ -139,7 +160,7 @@ namespace SCPDb
 
         private void buttonSCPEdit_Click(object sender, EventArgs e)
         {
-            if (assignSCP_listBox.SelectedItem == null)
+            if (viewSCP_listBox.SelectedItem == null)
                 MessageBox.Show("Please Select an SCP item to Edit.");
             else
             {
@@ -150,7 +171,7 @@ namespace SCPDb
 
         private void buttonSCPView_Click(object sender, EventArgs e)
         {
-            if (assignSCP_listBox.SelectedItem == null)
+            if (viewSCP_listBox.SelectedItem == null)
                 MessageBox.Show("Please Select an SCP item to View.");
             else
             {
@@ -203,6 +224,24 @@ namespace SCPDb
             lForm.Owner = this;
             lForm.ShowDialog();
         }
+
+        
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                buttonSCPAdd.Visible = true;
+                buttonSCPEdit.Visible = true;
+            }
+            else
+            {
+                buttonSCPAdd.Visible = false;
+                buttonSCPEdit.Visible = false;
+            }
+        }
+
+        
 
 
     }
