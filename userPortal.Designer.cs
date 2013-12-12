@@ -244,7 +244,7 @@
             // buttonChangePassword
             // 
             resources.ApplyResources(this.buttonChangePassword, "buttonChangePassword");
-            this.buttonChangePassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonChangePassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.UseVisualStyleBackColor = true;
             this.buttonChangePassword.Click += new System.EventHandler(this.buttonChangePassword_Click);
