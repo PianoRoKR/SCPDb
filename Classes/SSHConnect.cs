@@ -32,7 +32,7 @@ public class SSHConnector
             };
             mPort.Start();
         }
-        catch(Exception ex)
+        catch
         {
             lSuccess = false;
         }
@@ -47,7 +47,7 @@ public class SSHConnector
             mPort.Start();
             mClient.Disconnect();
         }
-        catch(Exception ex)
+        catch
         {
             lSuccess = false;
         }

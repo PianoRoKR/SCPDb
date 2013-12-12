@@ -20,7 +20,6 @@ namespace SCPDb.Classes
         private string mPassword;
         private string mSessionID;
         private User activeUser;
-        private bool mLoggedIn = false;
 
         //Constructor
         public DBConnect()
@@ -124,7 +123,7 @@ namespace SCPDb.Classes
                 }
                 lDataReader.Close();
             }
-            catch (Exception ex)
+            catch
             {
                 if(lDataReader != null)
                     lDataReader.Close();
@@ -216,7 +215,6 @@ namespace SCPDb.Classes
                 {
                     mSessionID = lSessionID;
                     setActiveUser(lValidUID);
-                    mLoggedIn = true;
                     return true;
                 }
                 return false;
@@ -243,7 +241,6 @@ namespace SCPDb.Classes
             {
                 mSessionID = "";
                 activeUser = null;
-                mLoggedIn = false;
                 return true;
             }
             return false;
@@ -468,7 +465,7 @@ namespace SCPDb.Classes
                 else
                     lTrans.Commit();
             }
-            catch (Exception ex)
+            catch
             {
                 lTrans.Rollback();
                 retval = false;
@@ -523,7 +520,7 @@ namespace SCPDb.Classes
                 else
                     lTrans.Commit();
             }
-            catch (Exception ex)
+            catch
             {
                 lTrans.Rollback();
                 retval = false;
