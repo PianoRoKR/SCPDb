@@ -226,6 +226,7 @@ namespace SCPDb
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
             int lUID = mDB.SelectUID(mDB.getSessionID());
+            
             if(lUID != mDB.getAgentID())
             {
                 MessageBox.Show("Invalid session! Please login.");
@@ -253,6 +254,8 @@ namespace SCPDb
                 buttonSCPEdit.Visible = false;
             }
         }
+
+        
 
         
 

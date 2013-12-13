@@ -181,7 +181,7 @@ namespace SCPDb.Classes
 
         public int SelectUID(string aSession)
         {
-            string lQuery = "SELECT userID FROM Users WHERE sessionid = @session";
+            string lQuery = "SELECT userID FROM Users WHERE sessionID = @session";
             int lUID = -1;
             MySqlCommand lSessionLookup = new MySqlCommand(lQuery, mConnection);
             lSessionLookup.Parameters.Add("@session", MySqlDbType.String);
@@ -199,9 +199,11 @@ namespace SCPDb.Classes
         public bool ExecuteLogin(int aUID, string aPassword)
         {
             int lValidUID = this.SelectUID(aUID, aPassword);
-            string lQuery = "UPDATE Users SET sessionid=@session WHERE userid=@uid";
+            string lQuery = "UPDATE Users SET sessionID=@session WHERE userID=@uid";
             TimeSpan span = DateTime.Now.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+
             string lSessionID = span.TotalMilliseconds.ToString();
+
             if (lValidUID != aUID)
                 return false;
             else
@@ -231,7 +233,7 @@ namespace SCPDb.Classes
 
         public bool ExecuteLogout(int aUID)
         {
-            string lQuery = "UPDATE Users SET sessionid = NULL WHERE userid=@uid";
+            string lQuery = "UPDATE Users SET sessionID = NULL WHERE userID=@uid";
             string lSessionID = DateTime.Now.ToFileTime().ToString();
             MySqlCommand lSessionCmd = new MySqlCommand(lQuery, mConnection);
             lSessionCmd.Parameters.Add("@session", MySqlDbType.String);
@@ -320,7 +322,7 @@ namespace SCPDb.Classes
         public List<int> getSCPDb()
         {
             List<int> lSCPList = new List<int>();
-            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE i.class < @class OR a.userId = @uid ORDER BY i.scpNum";
+            string lQuery = "SELECT DISTINCT i.scpNum FROM Item i LEFT OUTER JOIN Assigned a ON i.scpNum = a.scpNum WHERE i.class < @class OR a.userID = @uid ORDER BY i.scpNum";
             MySqlCommand lCommand = new MySqlCommand(lQuery, mConnection);
             lCommand.Parameters.AddWithValue("@class", activeUser.Class);
             lCommand.Parameters.AddWithValue("@uid", activeUser.UserID);
@@ -354,7 +356,7 @@ namespace SCPDb.Classes
         public List<User> getUsersManaged()
         {
             List<User> lUserList = new List<User>();
-            string lQuery = "SELECT u2.* FROM Users u1, Users u2 WHERE u1.userID = @uid AND u2.class < u1.class";
+            string lQuery = "SELECT u2.* FROM Users u1, Users u2 WHERE u1.userID = @uid AND u2.class < u1.class Order By class";
             int lUID;
             int lClass;
             string lName;
