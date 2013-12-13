@@ -35,5 +35,12 @@ namespace SCPDb
             richInterview.Text = mInterview;
             richAdAss.Text = mAddendum;
         }
+
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
     }
 }

@@ -36,10 +36,17 @@ namespace SCPDb
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (mDB.addAddendum(mSCPNum, mAddNum, richTextBox1.Text))
-                this.Close();
+            if (richTextBox1.Text == "")
+            {
+                MessageBox.Show("No Text Entered");
+            }
             else
-                MessageBox.Show("Adendum failed to be inserted!");
+            {
+                if (mDB.addAddendum(mSCPNum, mAddNum, richTextBox1.Text))
+                    this.Close();
+                else
+                    MessageBox.Show("Adendum failed to be inserted!");
+            }
         }
     }
 }

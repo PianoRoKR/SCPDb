@@ -540,14 +540,12 @@ namespace SCPDb.Classes
             lCmd.Parameters.Add("@SCP", MySqlDbType.Int16);
             lCmd.Parameters["@user"].Value = aUser.UserID;
             lCmd.Parameters["@SCP"].Value = scpNum;
-            
-            if (lCmd.ExecuteNonQuery() != 1)
-            {
-                lTrans.Rollback();
-                return false;
+            try {lCmd.ExecuteNonQuery();}
+            catch { lTrans.Rollback();
+                    return false;
             }
-            else
-                lTrans.Commit();
+            
+            lTrans.Commit();
             return true;
         }
 
